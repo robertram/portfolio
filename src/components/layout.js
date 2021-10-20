@@ -20,8 +20,6 @@ const Layout = ({ pageTitle, children }) => {
         <title>{pageTitle} | {data.site.siteMetadata.title}</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <h1>{pageTitle} | {data.site.siteMetadata.title}</h1>
-      <header>{data.site.siteMetadata.title}</header>
       <nav>
         <ul>
           <li><Link to="/">Home</Link></li>

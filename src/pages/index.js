@@ -2,16 +2,10 @@ import * as React from "react";
 import Layout from "../components/layout";
 import { StaticImage } from "gatsby-plugin-image";
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-};
 
 const IndexPage = () => {
   return (
-    <main style={pageStyles}>
+    <main>
       <Layout pageTitle="Home Page">
         <p>I'm making this by following the Gatsby Tutorial.</p>
         <StaticImage
