@@ -8,6 +8,22 @@ module.exports = {
     title: "Portfolio",
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true, // defaults to false
+        jsxPragma: `jsx`, // defaults to "React"
+        allExtensions: true, // defaults to false
+        module: "commonjs",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Slabo 13px`],
+        display: "swap",
+      },
+    },
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
     {
