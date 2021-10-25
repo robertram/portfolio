@@ -3,8 +3,15 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import Header from "./header";
+import { GlobalStyle } from "../styles/globalStyle";
 
-const Layout = ({ pageTitle, children }) => {
+export interface Props {
+  pageTitle?: string;
+  children;
+}
+
+const Layout = (props) => {
+  const { pageTitle, children } = props;
   const data = useStaticQuery(graphql`
     query {
       site(siteMetadata: { title: {}, siteUrl: {} }) {
@@ -25,6 +32,7 @@ const Layout = ({ pageTitle, children }) => {
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <LayoutContainer>
+        <GlobalStyle />
         <Header />
         <main>{children}</main>
       </LayoutContainer>
@@ -32,13 +40,6 @@ const Layout = ({ pageTitle, children }) => {
   );
 };
 
-const LayoutContainer = styled.div`
-  margin: 3rem auto;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
+const LayoutContainer = styled.div``;
 
 export default Layout;
