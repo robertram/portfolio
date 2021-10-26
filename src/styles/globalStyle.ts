@@ -1,28 +1,19 @@
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 
-export const theme = {
-  font: {
-    slabo: 'Slabo 13px',
-  },
-}
-
 export const GlobalStyle = createGlobalStyle`
   ${reset}
-
-  *, *:before, *:after {
-    box-sizing: border-box;
-  }
+  
   html {
     box-sizing: border-box;
     scroll-behavior: smooth;
-    //font-family: ${({ theme }) => theme.font.slabo};
-    font-size: 16px;
-    color: '#1a202c';
+    font-family: 'Slabo 13px', 'Mulish';
+    //font-family: '${theme.font.main}';
+    //font-size: ${theme.fontSize['6xl']};
   }
   body {
     line-height: 1.5;
     letter-spacing: 0;
-    background-color: '#f7fafc';
+    background-color: #f7fafc;
   }
 `
