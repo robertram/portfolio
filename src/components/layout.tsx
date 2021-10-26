@@ -1,16 +1,20 @@
-import * as React from "react";
+import React, { useContext, useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { Helmet } from "react-helmet";
-import styled from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 import Header from "./header";
-import { GlobalStyle } from "../styles/globalStyle";
+import { GlobalStyle } from "../styles/theme";
+import { darkTheme, lightTheme } from "../styles/theme";
+import { DarkModeContext } from "../hooks/DarkModeContext";
 
 export interface Props {
+  darkMode?: any;
   pageTitle?: string;
   children;
 }
 
 const Layout = (props) => {
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const { pageTitle, children } = props;
   const data = useStaticQuery(graphql`
     query {
@@ -31,15 +35,27 @@ const Layout = (props) => {
         </title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <LayoutContainer>
-        <GlobalStyle />
+      <LayoutContainer darkMode={darkMode}>
+        <GlobalStyle theme={darkMode ? darkTheme : lightTheme} />
         <Header />
-        <main>{children}</main>
+        <main>
+          {children}
+
+          <button
+            onClick={() => {
+              toggleDarkMode();
+            }}
+          >
+            {true ? "Light Mode" : "Dark Mode"}
+          </button>
+        </main>
       </LayoutContainer>
     </div>
   );
 };
 
-const LayoutContainer = styled.div``;
+const LayoutContainer = styled.div<Props>`
+  background-color: ${(props) => (props.darkMode ? "black" : "white")};
+`;
 
 export default Layout;
