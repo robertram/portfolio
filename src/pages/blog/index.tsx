@@ -2,24 +2,29 @@ import * as React from "react";
 import Layout from "../../components/layout";
 import styled from "styled-components";
 import { Link, graphql } from "gatsby";
+import { ThemeProvider } from "../../components/theme";
 
 const BlogPage = ({ data }) => {
   return (
-    <BlogPageContainer>
-      <Layout pageTitle="My Blog Posts">
-        <p>My cool posts will go in here</p>
-        <ul className="BlogPage__titleContainer">
-          {data.allMdx.nodes.map((node) => (
-            <article key={node.id}>
-              <h2>
-                <Link to={`/blog/${node.slug}`}>{node.frontmatter.title}</Link>
-              </h2>
-              <p>Posted: {node.frontmatter.date}</p>
-            </article>
-          ))}
-        </ul>
-      </Layout>
-    </BlogPageContainer>
+    <ThemeProvider>
+      <BlogPageContainer>
+        <Layout pageTitle="My Blog Posts">
+          <p>My cool posts will go in here</p>
+          <ul className="BlogPage__titleContainer">
+            {data.allMdx.nodes.map((node) => (
+              <article key={node.id}>
+                <h2>
+                  <Link to={`/blog/${node.slug}`}>
+                    {node.frontmatter.title}
+                  </Link>
+                </h2>
+                <p>Posted: {node.frontmatter.date}</p>
+              </article>
+            ))}
+          </ul>
+        </Layout>
+      </BlogPageContainer>
+    </ThemeProvider>
   );
 };
 
