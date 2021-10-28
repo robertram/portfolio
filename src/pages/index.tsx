@@ -9,7 +9,7 @@ const IndexPage = () => {
     <ThemeProvider>
       <Layout pageTitle="Home Page">
         <HomeContainer>
-          <h1>My portfolio</h1>
+          <h1 className="header1">My portfolio</h1>
           <StaticImage
             alt="Clifford, a reddish-brown pitbull, posing on a couch and looking stoically at the camera"
             src="https://pbs.twimg.com/media/E1oMV3QVgAIr1NT?format=jpg&name=large"

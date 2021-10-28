@@ -1,6 +1,8 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
 import { ThemeProvider } from "styled-components";
+import reset from "./reset.css";
+import fonts from "./fonts.css";
 
 const colorPalette = {
   persimmon: "#FE5F55",
@@ -42,7 +44,8 @@ const baseTheme = {
 export const lightTheme = {
   ...baseTheme,
   global: {
-    bg: colorPalette.alabaster,
+    bg: colorPalette.white,
+    bg2: colorPalette.alabaster,
     color: colorPalette.black,
     link: colorPalette.black,
     linkHover: colorPalette.persimmon,
@@ -63,23 +66,32 @@ export const darkTheme = {
 };
 
 export const GlobalStyle = createGlobalStyle`
-    html,
-    body {
-      height: 100%;
-      transition: background 0.2s ease-out;
-    }
-    body {
-      background-color: ${(props) => props.theme.global.bg};
-      color: ${(props) => props.theme.global.color};
-    }
+  ${reset}
+  ${fonts}
+  *{
+    font-family: 'Slabo 13px';
+  }
+  html,
+  body {
+    height: 100%;
+    transition: background 0.2s ease-out;
+    font-family: 'Slabo 13px';
+  }
+  body {
+    font-family: 'Slabo 13px';
+    background-color: ${(props) => props.theme.global.bg};
+    color: ${(props) => props.theme.global.color};
+  }
 
-    a {
-      color: ${(props) => props.theme.global.link};
-    }
+  a {
+    color: ${(props) => props.theme.global.link};
+  }
 
-    a:hover {
-      color: ${(props) => props.theme.global.linkHover};
-    }
+  a:hover {
+    color: ${(props) => props.theme.global.linkHover};
+  }
+
+  
 `;
 
 const Theme = ({ theme, children }) => (
