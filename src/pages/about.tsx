@@ -1,10 +1,10 @@
 import * as React from "react";
 import Layout from "../components/layout";
-import ContextWrapper from "../components/ContextWrapper";
+import { ThemeProvider } from "../components/theme";
 
 const AboutPage = () => {
   return (
-    <ContextWrapper>
+    <ThemeProvider>
       <main>
         <Layout pageTitle="About Me">
           <p>
@@ -13,7 +13,7 @@ const AboutPage = () => {
           </p>
         </Layout>
       </main>
-    </ContextWrapper>
+    </ThemeProvider>
   );
 };
 

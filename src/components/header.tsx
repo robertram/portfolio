@@ -15,7 +15,6 @@ const Header = () => {
         <ul className="Header__itemsList">
           {items.map((item, index) => (
             <li className="Header__item" key={index}>
-              {console.log(item)}
               <Link to={item.link} className="Header__link">
                 <a>{item.title}</a>
               </Link>
