@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import React from "react";
 import { createGlobalStyle } from "styled-components";
+import { ThemeProvider } from "styled-components";
 
 // I'm using rgb numbers here for easily using rgba styling throughout the app
 // You can put hexcodes, names, or any other definitions that fits the context of your app
@@ -41,6 +42,7 @@ export const darkTheme = {
     color: colorPalette.lightShades,
     link: colorPalette.secondaryBrand,
     linkHover: colorPalette.lightAccent,
+    border: colorPalette.error,
   },
 };
 
@@ -51,6 +53,7 @@ export const lightTheme = {
     color: colorPalette.darkShades,
     link: colorPalette.mainBrand,
     linkHover: colorPalette.darkAccent,
+    border: colorPalette.error,
   },
 };
 
@@ -58,12 +61,11 @@ export const GlobalStyle = createGlobalStyle`
     html,
     body {
       height: 100%;
+      transition: background 0.2s ease-out;
     }
     body {
       background-color: rgb(${(props) => props.theme.global.bg});
       color: rgb(${(props) => props.theme.global.color});
-
-      transition: background 0.2s ease-out;
     }
 
     a {
@@ -71,6 +73,12 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     a:hover {
-      color: rgb(${(props) => props?.theme.global.linkHover});
+      color: rgb(${(props) => props.theme.global.linkHover});
     }
-  `;
+`;
+
+const Theme = ({ theme, children }) => (
+  <ThemeProvider theme={theme}>{children}</ThemeProvider>
+);
+
+export default Theme;

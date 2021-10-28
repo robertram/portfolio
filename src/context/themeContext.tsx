@@ -23,6 +23,26 @@ export const ThemeContext = createContext<{
   setMode: () => {},
 });
 
+export const saveThemeModePrefences = () => {
+  const mode = localStorage.getItem("mode") || "system";
+  let theme;
+  if (mode === "system") {
+    const isSystemInDarkMode = matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    theme = isSystemInDarkMode ? "dark" : "light";
+  } else {
+    // for light and dark, the theme is the mode
+    theme = mode;
+  }
+  document.body.classList.add(theme);
+};
+
+export const clearAndReload = () => {
+  localStorage.removeItem("mode");
+  document.location.reload();
+};
+
 export const ThemeProvider: FunctionComponent = ({ children }) => {
   const [mode, setMode] = useState<Mode>(() => {
     const initialMode =
