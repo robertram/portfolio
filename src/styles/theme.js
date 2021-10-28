@@ -2,9 +2,13 @@ import React from "react";
 import { createGlobalStyle } from "styled-components";
 import { ThemeProvider } from "styled-components";
 
-// I'm using rgb numbers here for easily using rgba styling throughout the app
-// You can put hexcodes, names, or any other definitions that fits the context of your app
 const colorPalette = {
+  persimmon: "#FE5F55",
+  bunker: "#0C1418",
+  alabaster: "#F7F7F7",
+  astek: "#111F25",
+  white: "#FFFFFF",
+  black: "#000000",
   lightShades: "242, 242, 241",
   lightAccent: "139, 142, 149",
   mainBrand: "140, 100, 88",
@@ -35,25 +39,26 @@ const baseTheme = {
   },
 };
 
-export const darkTheme = {
-  ...baseTheme,
-  global: {
-    bg: colorPalette.darkShades,
-    color: colorPalette.lightShades,
-    link: colorPalette.secondaryBrand,
-    linkHover: colorPalette.lightAccent,
-    border: colorPalette.error,
-  },
-};
-
 export const lightTheme = {
   ...baseTheme,
   global: {
-    bg: colorPalette.lightShades,
-    color: colorPalette.darkShades,
-    link: colorPalette.mainBrand,
-    linkHover: colorPalette.darkAccent,
-    border: colorPalette.error,
+    bg: colorPalette.alabaster,
+    color: colorPalette.black,
+    link: colorPalette.black,
+    linkHover: colorPalette.persimmon,
+    border: colorPalette.persimmon,
+  },
+};
+
+export const darkTheme = {
+  ...baseTheme,
+  global: {
+    bg: colorPalette.astek,
+    bg2: colorPalette.astek,
+    color: colorPalette.white,
+    link: colorPalette.white,
+    linkHover: colorPalette.persimmon,
+    border: colorPalette.persimmon,
   },
 };
 
@@ -64,16 +69,16 @@ export const GlobalStyle = createGlobalStyle`
       transition: background 0.2s ease-out;
     }
     body {
-      background-color: rgb(${(props) => props.theme.global.bg});
-      color: rgb(${(props) => props.theme.global.color});
+      background-color: ${(props) => props.theme.global.bg};
+      color: ${(props) => props.theme.global.color};
     }
 
     a {
-      color: rgb(${(props) => props.theme.global.link});
+      color: ${(props) => props.theme.global.link};
     }
 
     a:hover {
-      color: rgb(${(props) => props.theme.global.linkHover});
+      color: ${(props) => props.theme.global.linkHover};
     }
 `;
 
