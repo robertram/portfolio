@@ -40,12 +40,16 @@ const HeaderContainer = styled.div`
       list-style-type: none;
       margin: 0 10px;
       &:hover {
-        text-decoration: underline;
+        text-decoration: none;
+        color: ${(props) => props.theme.global.linkHover};
       }
     }
     &__link {
       color: black;
       text-decoration: none;
+
+      &:hover {
+      }
     }
   }
 `;
