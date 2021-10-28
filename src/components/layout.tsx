@@ -58,7 +58,7 @@ const Layout = (props) => {
 };
 
 const LayoutContainer = styled.div<Props>`
-  background-color: rgb(${(props) => props.theme.global.bg});
+  background-color: ${(props) => props.theme.global.bg};
   transition: background 0.2s ease-out;
 `;
 
