@@ -2,7 +2,7 @@ import * as React from "react";
 import Layout from "../../components/layout";
 import styled from "styled-components";
 import { Link, graphql } from "gatsby";
-import { ThemeProvider } from "../../components/theme";
+import { ThemeProvider } from "../../context/themeContext";
 
 const BlogPage = ({ data }) => {
   return (

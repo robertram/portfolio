@@ -30,6 +30,7 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: center;
   margin: auto 0;
+
   .Header {
     &__itemsList {
       display: flex;
