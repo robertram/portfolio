@@ -16,7 +16,7 @@ const Header = () => {
           {items.map((item, index) => (
             <li className="Header__item" key={index}>
               <Link to={item.link} className="Header__link body">
-                <a>{item.title}</a>
+                <a className="Header__linkItem">{item.title}</a>
               </Link>
             </li>
           ))}
@@ -50,8 +50,12 @@ const HeaderContainer = styled.div`
     &__link {
       color: black;
       text-decoration: none;
-
+    }
+    &__linkItem {
+      text-decoration: none;
+      color: ${(props) => props.theme.global.link};
       &:hover {
+        color: ${(props) => props.theme.global.linkHover};
       }
     }
   }
