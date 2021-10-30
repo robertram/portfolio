@@ -1,14 +1,17 @@
 import * as React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import Layout from "../components/Layout";
 import { StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import { ThemeProvider } from "../context/themeContext";
 
 const IndexPage = () => {
+  const data = useStaticQuery(query);
   return (
     <ThemeProvider>
-      <Layout pageTitle="Home Page">
+      <Layout pageTitle="Home Page" seo={data.strapiHomepage.seo}>
         <HomeContainer>
+          <h1>{data.strapiHomepage.hero.title}</h1>
           <h1 className="header1">My portfolio</h1>
           <StaticImage
             alt="Clifford, a reddish-brown pitbull, posing on a couch and looking stoically at the camera"
@@ -24,6 +27,25 @@ const HomeContainer = styled.div`
   .Home {
     &__image {
       width: 200px;
+    }
+  }
+`;
+
+const query = graphql`
+  query {
+    strapiHomepage {
+      hero {
+        title
+      }
+      seo {
+        metaTitle
+        metaDescription
+        shareImage {
+          localFile {
+            publicURL
+          }
+        }
+      }
     }
   }
 `;

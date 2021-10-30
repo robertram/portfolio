@@ -10,13 +10,16 @@ import {
   saveThemeModePrefences,
   clearAndReload,
 } from "../context/themeContext";
+import Seo from "./Seo";
+import Nav from "./Nav";
 
 export interface Props {
   pageTitle?: string;
   children;
+  seo?: any;
 }
 
-const Layout = (props) => {
+const Layout = (props: Props) => {
   const { theme, setMode } = useContext(ThemeContext);
   const { pageTitle, children } = props;
   useEffect(() => {
@@ -31,6 +34,17 @@ const Layout = (props) => {
           siteUrl
         }
       }
+      strapiHomepage {
+        seo {
+          metaTitle
+          metaDescription
+          shareImage {
+            localFile {
+              publicURL
+            }
+          }
+        }
+      }
     }
   `);
   return (
@@ -40,11 +54,13 @@ const Layout = (props) => {
         <title>
           {pageTitle} | {data.site.siteMetadata.title}
         </title>
-        <meta id="colorScheme" name="color-scheme" content="light dark" />
+        <meta id="colorScheme" name="color-scheme" content={theme || "light"} />
       </Helmet>
+      <Seo seo={data.strapiHomepage.seo} />
       <LayoutContainer>
         <GlobalStyle theme={theme === "dark" ? darkTheme : lightTheme} />
         <Header />
+        <Nav />
         <main>
           {children}
           <button onClick={() => setMode("light")}>Switch to light</button>
@@ -57,7 +73,7 @@ const Layout = (props) => {
   );
 };
 
-const LayoutContainer = styled.div<Props>`
+const LayoutContainer = styled.div`
   background-color: ${(props) => props.theme.global.bg};
   transition: background 0.2s ease-out;
 `;
