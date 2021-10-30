@@ -8,7 +8,6 @@ const Articles = ({ articles }) => {
 
   return (
     <div>
-      {console.log("leftArticles", leftArticles)}
       <div className="uk-child-width-1-2@s" data-uk-grid="true">
         <div>
           {leftArticles.map((article, i) => {
