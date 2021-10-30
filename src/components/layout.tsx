@@ -62,11 +62,11 @@ const Layout = (props: Props) => {
         <Header />
         <Nav />
         <main>
-          {children}
           <button onClick={() => setMode("light")}>Switch to light</button>
           <button onClick={() => setMode("dark")}>Switch to dark</button>
           <button onClick={() => setMode("system")}>Switch to system</button>
           <button onClick={clearAndReload}>Forget mode and reload page</button>
+          {children}
         </main>
       </LayoutContainer>
     </Theme>
