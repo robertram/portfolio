@@ -10,13 +10,12 @@ const items = [
 
 const Header = () => {
   return (
-    <HeaderContainer>
+    <HeaderContainer className="Header">
       <nav className="">
         <ul className="Header__itemsList">
           {items.map((item, index) => (
             <li className="Header__item" key={index}>
-              {console.log(item)}
-              <Link to={item.link} className="Header__link">
+              <Link to={item.link} className="Header__link body">
                 <a>{item.title}</a>
               </Link>
             </li>
@@ -28,7 +27,14 @@ const Header = () => {
 };
 
 const HeaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: auto 0;
+  padding: 20px 0;
+  background-color: ${(props) => props.theme.global.bg2};
+
   .Header {
+    background-color: ${(props) => props.theme.global.bg2};
     &__itemsList {
       display: flex;
       padding: 0;
@@ -37,14 +43,24 @@ const HeaderContainer = styled.div`
       list-style-type: none;
       margin: 0 10px;
       &:hover {
-        text-decoration: underline;
+        text-decoration: none;
+        color: ${(props) => props.theme.global.linkHover};
       }
     }
     &__link {
       color: black;
       text-decoration: none;
+
+      &:hover {
+      }
     }
   }
 `;
+
+Header.defaultProps = {
+  theme: {
+    font: "Slabo 13px",
+  },
+};
 
 export default Header;
