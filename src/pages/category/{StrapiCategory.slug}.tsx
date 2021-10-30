@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import ArticlesComponent from "../../components/Articles";
 import Layout from "../../components/Layout";
+import { ThemeProvider } from "../../context/themeContext";
 
 const Category = ({ data }) => {
   const articles = data.articles.edges;
@@ -12,14 +13,16 @@ const Category = ({ data }) => {
   };
 
   return (
-    <Layout seo={seo}>
-      <div className="uk-section">
-        <div className="uk-container uk-container-large">
-          <h1>{category}</h1>
-          <ArticlesComponent articles={articles} />
+    <ThemeProvider>
+      <Layout seo={seo}>
+        <div className="uk-section">
+          <div className="uk-container uk-container-large">
+            <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
+            <ArticlesComponent articles={articles} />
+          </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </ThemeProvider>
   );
 };
 

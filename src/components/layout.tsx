@@ -5,13 +5,8 @@ import styled from "styled-components";
 import Header from "./Header";
 import { GlobalStyle } from "../styles/theme";
 import Theme, { darkTheme, lightTheme } from "../styles/theme";
-import {
-  ThemeContext,
-  saveThemeModePrefences,
-  clearAndReload,
-} from "../context/themeContext";
+import { ThemeContext, saveThemeModePrefences } from "../context/themeContext";
 import Seo from "./Seo";
-import Nav from "./Nav";
 
 export interface Props {
   pageTitle?: string;
@@ -20,7 +15,7 @@ export interface Props {
 }
 
 const Layout = (props: Props) => {
-  const { theme, setMode } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const { pageTitle, children } = props;
   useEffect(() => {
     saveThemeModePrefences();
@@ -60,22 +55,15 @@ const Layout = (props: Props) => {
       <LayoutContainer>
         <GlobalStyle theme={theme === "dark" ? darkTheme : lightTheme} />
         <Header />
-        <Nav />
-        <main>
-          <button onClick={() => setMode("light")}>Switch to light</button>
-          <button onClick={() => setMode("dark")}>Switch to dark</button>
-          <button onClick={() => setMode("system")}>Switch to system</button>
-          <button onClick={clearAndReload}>Forget mode and reload page</button>
-          {children}
-        </main>
+        <main>{children}</main>
       </LayoutContainer>
     </Theme>
   );
 };
 
 const LayoutContainer = styled.div`
-  background-color: ${(props) => props.theme.global.bg};
   transition: background 0.2s ease-out;
+  background-color: ${(props) => props.theme.global.bg};
 `;
 
 export default Layout;

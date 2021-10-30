@@ -1,6 +1,7 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import { ThemeContext } from "../context/themeContext";
 
 const items = [
   { link: "/", title: "Home" },
@@ -9,9 +10,10 @@ const items = [
 ];
 
 const Header = () => {
+  const { theme, setMode } = useContext(ThemeContext);
   return (
     <HeaderContainer className="Header">
-      <nav className="">
+      <nav className="Header__nav">
         <ul className="Header__itemsList">
           {items.map((item, index) => (
             <li className="Header__item" key={index}>
@@ -21,6 +23,10 @@ const Header = () => {
             </li>
           ))}
         </ul>
+
+        <button onClick={() => setMode(theme === "dark" ? "light" : "dark")}>
+          {theme === "dark" ? "Light" : "Dark"}
+        </button>
       </nav>
     </HeaderContainer>
   );
@@ -31,10 +37,14 @@ const HeaderContainer = styled.div`
   justify-content: center;
   margin: auto 0;
   padding: 20px 0;
+  transition: background 0.2s ease-out;
   background-color: ${(props) => props.theme.global.bg2};
 
   .Header {
     background-color: ${(props) => props.theme.global.bg2};
+    &__nav {
+      display: flex;
+    }
     &__itemsList {
       display: flex;
       padding: 0;

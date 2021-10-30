@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
+import styled from "styled-components";
 
 const Nav = () => {
   const data = useStaticQuery(graphql`
@@ -18,18 +19,11 @@ const Nav = () => {
     }
   `);
   return (
-    <div>
-      <nav className="uk-navbar-container" data-uk-navbar>
-        <div className="uk-navbar-left">
-          <ul className="uk-navbar-nav">
-            <li>
-              <Link to="/">{data.strapiGlobal.siteName}</Link>
-            </li>
-          </ul>
-        </div>
+    <NavContainer>
+      <nav className="uk-navbar-container Nav" data-uk-navbar>
         <div className="uk-navbar-right">
           <button
-            className="uk-button uk-button-default uk-margin-right"
+            className="uk-button uk-button-default uk-margin-right Nav__button"
             type="button"
           >
             Categories
@@ -39,7 +33,8 @@ const Nav = () => {
               {data.allStrapiCategory.edges.map((category, i) => (
                 <li key={`category__${category.node.slug}`}>
                   <Link to={`/category/${category.node.slug}`}>
-                    {category.node.name}
+                    {category.node.name.charAt(0).toUpperCase() +
+                      category.node.name.slice(1)}
                   </Link>
                 </li>
               ))}
@@ -47,8 +42,20 @@ const Nav = () => {
           </div>
         </div>
       </nav>
-    </div>
+    </NavContainer>
   );
 };
+
+const NavContainer = styled.div`
+  background-color: ${(props) => props.theme.global.bg};
+  .Nav {
+    background-color: ${(props) => props.theme.global.bg} !important;
+    transition: background 0.2s ease-out;
+    color: ${(props) => props.theme.global.color} !important;
+    &__button {
+      color: ${(props) => props.theme.global.color};
+    }
+  }
+`;
 
 export default Nav;
