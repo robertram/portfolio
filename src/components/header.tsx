@@ -39,7 +39,6 @@ const HeaderContainer = styled.div`
   padding: 20px 0;
   transition: background 0.2s ease-out;
   background-color: ${(props) => props.theme.global.bg2};
-
   .Header {
     background-color: ${(props) => props.theme.global.bg2};
     &__nav {
