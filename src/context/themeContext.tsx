@@ -93,8 +93,6 @@ export const ThemeProvider: FunctionComponent = ({ children }) => {
     document.body.classList.remove("light");
     document.body.classList.remove("dark");
     document.body.classList.add(theme);
-    // change <meta name="color-scheme"> for native inputs
-    (document.getElementById("colorScheme") as HTMLMetaElement).content = theme;
   }, [theme]);
 
   return (

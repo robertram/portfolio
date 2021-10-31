@@ -5,19 +5,17 @@ import styled from "styled-components";
 import Header from "./Header";
 import { GlobalStyle } from "../styles/theme";
 import Theme, { darkTheme, lightTheme } from "../styles/theme";
-import {
-  ThemeContext,
-  saveThemeModePrefences,
-  clearAndReload,
-} from "../context/themeContext";
+import { ThemeContext, saveThemeModePrefences } from "../context/themeContext";
+import Seo from "./Seo";
 
 export interface Props {
   pageTitle?: string;
   children;
+  seo?: any;
 }
 
-const Layout = (props) => {
-  const { theme, setMode } = useContext(ThemeContext);
+const Layout = (props: Props) => {
+  const { theme } = useContext(ThemeContext);
   const { pageTitle, children } = props;
   useEffect(() => {
     saveThemeModePrefences();
@@ -31,6 +29,17 @@ const Layout = (props) => {
           siteUrl
         }
       }
+      strapiHomepage {
+        seo {
+          metaTitle
+          metaDescription
+          shareImage {
+            localFile {
+              publicURL
+            }
+          }
+        }
+      }
     }
   `);
   return (
@@ -38,28 +47,23 @@ const Layout = (props) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>
-          {pageTitle} | {data.site.siteMetadata.title}
+          {`${pageTitle && pageTitle}`} | {data.site.siteMetadata.title}
         </title>
-        <meta id="colorScheme" name="color-scheme" content="light dark" />
+        <meta id="colorScheme" name="color-scheme" content={theme || "light"} />
       </Helmet>
+      <Seo seo={data.strapiHomepage.seo} />
       <LayoutContainer>
         <GlobalStyle theme={theme === "dark" ? darkTheme : lightTheme} />
         <Header />
-        <main>
-          {children}
-          <button onClick={() => setMode("light")}>Switch to light</button>
-          <button onClick={() => setMode("dark")}>Switch to dark</button>
-          <button onClick={() => setMode("system")}>Switch to system</button>
-          <button onClick={clearAndReload}>Forget mode and reload page</button>
-        </main>
+        <main>{children}</main>
       </LayoutContainer>
     </Theme>
   );
 };
 
-const LayoutContainer = styled.div<Props>`
-  background-color: ${(props) => props.theme.global.bg};
+const LayoutContainer = styled.div`
   transition: background 0.2s ease-out;
+  background-color: ${(props) => props.theme.global.bg};
 `;
 
 export default Layout;

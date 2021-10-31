@@ -74,23 +74,24 @@ export const GlobalStyle = createGlobalStyle`
   html,
   body {
     height: 100%;
-    transition: background 0.2s ease-out;
     font-family: 'Slabo 13px';
+    color: ${(props) => props.theme.global.color};
   }
   body {
     font-family: 'Slabo 13px';
+    transition: background 0.2s ease-out;
     background-color: ${(props) => props.theme.global.bg};
     color: ${(props) => props.theme.global.color};
   }
-
   a {
     color: ${(props) => props.theme.global.link};
   }
-
   a:hover {
     color: ${(props) => props.theme.global.linkHover};
   }
-
+  h1, h2, h3, h4, h5, p{
+    color: ${(props) => props.theme.global.color} !important;
+  }
   
 `;
 
