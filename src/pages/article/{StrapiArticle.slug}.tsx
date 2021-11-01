@@ -78,6 +78,14 @@ const Article = ({ data }) => {
     </ThemeProvider>
   );
 };
+/*image {
+        localFile {
+          publicURL
+          childrenImageSharp {
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+          }
+        }
+      } */
 
 export const query = graphql`
   query ArticleQuery($slug: String!) {
@@ -87,14 +95,6 @@ export const query = graphql`
       description
       content
       published_at
-      image {
-        localFile {
-          publicURL
-          childrenImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
-          }
-        }
-      }
       author {
         name
         picture {

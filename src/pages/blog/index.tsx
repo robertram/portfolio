@@ -33,6 +33,14 @@ const BlogPageContainer = styled.div`
   }
 `;
 
+/*image {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 660)
+              }
+            }
+          } */
+
 export const query = graphql`
   query {
     allMdx(sort: { fields: frontmatter___date, order: ASC }) {
@@ -67,13 +75,6 @@ export const query = graphql`
           title
           category {
             name
-          }
-          image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 660)
-              }
-            }
           }
           author {
             name
