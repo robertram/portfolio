@@ -21,16 +21,15 @@ const Article = ({ data }) => {
       <Layout seo={seo}>
         <div>
           <div>
-            {
-              /*
+            {/*
            TODO: childrenImageSharp research
-          */
+          
               console.log(
                 "childImageSharp",
                 article.image.localFile.childrenImageSharp[0].gatsbyImageData
               )
-            }
-            {
+            */}
+            {/*
               <GatsbyImage
                 style={{
                   gridArea: "1/1",
@@ -40,8 +39,7 @@ const Article = ({ data }) => {
                   article.image.localFile.childrenImageSharp[0].gatsbyImageData
                 }
                 layout="fullWidth"
-              />
-            }
+              />*/}
           </div>
           <div className="uk-section">
             <div className="uk-container uk-container-small">

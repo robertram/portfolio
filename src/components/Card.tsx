@@ -7,10 +7,10 @@ const Card = ({ article }) => {
     <Link to={`/article/${article.node.slug}`} className="uk-link-reset">
       <div className="uk-card uk-card-muted">
         <div className="uk-card-media-top">
-          <GatsbyImage
+          {/* <GatsbyImage
             image={article.node.image.localFile.childImageSharp.gatsbyImageData}
             alt={`Hero image`}
-          />
+         />*/}
         </div>
         <div className="uk-card-body">
           <p id="category" className="uk-text-uppercase">
@@ -23,7 +23,7 @@ const Card = ({ article }) => {
             <hr className="uk-divider-small" />
             <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
               <div>
-                {article.node?.author?.picture && (
+                {/*article.node?.author?.picture && (
                   <GatsbyImage
                     image={
                       article.node.author.picture.localFile.childImageSharp
@@ -32,7 +32,7 @@ const Card = ({ article }) => {
                     alt={`Picture of ${article.node.author?.name}`}
                     style={{ borderRadius: "50%" }}
                   />
-                )}
+                  )*/}
               </div>
               <div className="uk-width-expand">
                 <p className="uk-margin-remove-bottom">

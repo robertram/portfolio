@@ -14,10 +14,10 @@ const BlogPost = ({ data }) => {
         <BlogPostContainer>
           <h1>{data.mdx.frontmatter.title}</h1>
           <p>{data.mdx.frontmatter.date}</p>
-          <GatsbyImage
+          {/*<GatsbyImage
             image={image}
             alt={data.mdx.frontmatter.hero_image_alt}
-          />
+          />*/}
           <p>
             Photo Credit:{" "}
             <a href={data.mdx.frontmatter.hero_image_credit_link}>
