@@ -87,6 +87,14 @@ const Article = ({ data }) => {
         }
       } */
 
+/*picture {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(width: 30)
+            }
+          }
+        } */
+
 export const query = graphql`
   query ArticleQuery($slug: String!) {
     strapiArticle(slug: { eq: $slug }) {
@@ -97,13 +105,6 @@ export const query = graphql`
       published_at
       author {
         name
-        picture {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(width: 30)
-            }
-          }
-        }
       }
     }
   }

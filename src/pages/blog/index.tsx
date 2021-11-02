@@ -41,6 +41,20 @@ const BlogPageContainer = styled.div`
             }
           } */
 
+/*shareImage {
+          localFile {
+            publicURL
+          }
+        } */
+
+/**picture {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 30)
+                }
+              }
+            } */
+
 export const query = graphql`
   query {
     allMdx(sort: { fields: frontmatter___date, order: ASC }) {
@@ -60,11 +74,6 @@ export const query = graphql`
       seo {
         metaTitle
         metaDescription
-        shareImage {
-          localFile {
-            publicURL
-          }
-        }
       }
     }
     allStrapiArticle {
@@ -78,13 +87,6 @@ export const query = graphql`
           }
           author {
             name
-            picture {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(width: 30)
-                }
-              }
-            }
           }
         }
       }

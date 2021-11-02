@@ -21,6 +21,12 @@ const Layout = (props: Props) => {
     saveThemeModePrefences();
   }, []);
 
+  /*shareImage {
+            localFile {
+              publicURL
+            }
+          } */
+
   const data = useStaticQuery(graphql`
     query {
       site(siteMetadata: { title: {}, siteUrl: {} }) {
@@ -33,11 +39,6 @@ const Layout = (props: Props) => {
         seo {
           metaTitle
           metaDescription
-          shareImage {
-            localFile {
-              publicURL
-            }
-          }
         }
       }
     }

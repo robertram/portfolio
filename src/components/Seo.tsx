@@ -118,24 +118,26 @@ const SEO = ({ seo = {} }) => {
 };
 
 export default SEO;
+/*shareImage {
+          localFile {
+            publicURL
+          }
+        } */
+
+/*favicon {
+        localFile {
+          publicURL
+        }
+      } */
 
 const query = graphql`
   query {
     strapiGlobal {
       siteName
-      favicon {
-        localFile {
-          publicURL
-        }
-      }
+
       defaultSeo {
         metaTitle
         metaDescription
-        shareImage {
-          localFile {
-            publicURL
-          }
-        }
       }
     }
   }
