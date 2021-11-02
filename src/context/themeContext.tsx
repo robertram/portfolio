@@ -24,7 +24,10 @@ export const ThemeContext = createContext<{
 });
 
 export const saveThemeModePrefences = () => {
-  const mode = null; //localStorage.getItem("mode") || "system";
+  let mode = null;
+  if (typeof window !== "undefined") {
+    mode = localStorage.getItem("mode") || "system";
+  }
   let theme;
   if (mode === "system") {
     const isSystemInDarkMode = matchMedia(
@@ -39,20 +42,28 @@ export const saveThemeModePrefences = () => {
 };
 
 export const clearAndReload = () => {
-  //localStorage.removeItem("mode");
+  if (typeof window !== "undefined") {
+    localStorage.removeItem("mode");
+  }
   document.location.reload();
 };
 
 export const ThemeProvider: FunctionComponent = ({ children }) => {
   const [mode, setMode] = useState<Mode>(() => {
-    const initialMode = null;
-    //(localStorage.getItem(localStorageKey) as Mode | undefined) || "system";
+    let initialMode = null;
+    if (typeof window !== "undefined") {
+      initialMode =
+        (localStorage.getItem(localStorageKey) as Mode | undefined) || "system";
+    }
     return initialMode;
   });
 
   // When the mode changes, save it to the localStorage and to the database
   useEffect(() => {
-    //localStorage.setItem(localStorageKey, mode);
+    if (typeof window !== "undefined") {
+      localStorage.setItem(localStorageKey, mode);
+      console.log("localStorage! useEffect");
+    }
   }, [mode]);
 
   const [theme, setTheme] = useState<Theme>(() => {
