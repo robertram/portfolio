@@ -90,7 +90,7 @@ const SEO = ({ seo = {} }) => {
       link={[
         {
           rel: "icon",
-          href: favicon.publicURL,
+          href: favicon || "",
         },
         {
           rel: "stylesheet",

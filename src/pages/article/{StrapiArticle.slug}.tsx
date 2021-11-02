@@ -12,7 +12,7 @@ const Article = ({ data }) => {
   const seo = {
     metaTitle: article.title,
     metaDescription: article.description,
-    shareImage: article.image,
+    shareImage: article.image || "",
     article: true,
   };
 
