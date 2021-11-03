@@ -40,6 +40,11 @@ const BlogPageContainer = styled.div`
               }
             }
           } */
+/*shareImage {
+          localFile {
+            publicURL
+          }
+        } */
 
 export const query = graphql`
   query {
@@ -60,11 +65,6 @@ export const query = graphql`
       seo {
         metaTitle
         metaDescription
-        shareImage {
-          localFile {
-            publicURL
-          }
-        }
       }
     }
     allStrapiArticle {

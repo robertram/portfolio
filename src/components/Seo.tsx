@@ -119,15 +119,16 @@ const SEO = ({ seo = {} }) => {
 
 export default SEO;
 
+/*favicon {
+        localFile {
+          publicURL
+        }
+      } */
+
 const query = graphql`
   query {
     strapiGlobal {
       siteName
-      favicon {
-        localFile {
-          publicURL
-        }
-      }
       defaultSeo {
         metaTitle
         metaDescription
