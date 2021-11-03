@@ -26,14 +26,6 @@ const Category = ({ data }) => {
   );
 };
 
-/*image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 660)
-              }
-            }
-          } */
-
 export const query = graphql`
   query Category($slug: String!) {
     articles: allStrapiArticle(filter: { category: { slug: { eq: $slug } } }) {
@@ -46,13 +38,6 @@ export const query = graphql`
           }
           author {
             name
-            picture {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(width: 30)
-                }
-              }
-            }
           }
         }
       }

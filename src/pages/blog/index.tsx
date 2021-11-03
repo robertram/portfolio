@@ -15,7 +15,6 @@ const BlogPage = ({ data }) => {
           <div className="uk-section">
             <div className="uk-container uk-container-large">
               <h1 className="header1">{data.strapiHomepage.hero.title}</h1>
-
               <Articles articles={data.allStrapiArticle.edges} />
             </div>
           </div>
@@ -33,31 +32,8 @@ const BlogPageContainer = styled.div`
   }
 `;
 
-/*image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 660)
-              }
-            }
-          } */
-/*shareImage {
-          localFile {
-            publicURL
-          }
-        } */
-
 export const query = graphql`
   query {
-    allMdx(sort: { fields: frontmatter___date, order: ASC }) {
-      nodes {
-        frontmatter {
-          date(formatString: "MMMM D, YYYY")
-          title
-        }
-        id
-        slug
-      }
-    }
     strapiHomepage {
       hero {
         title
@@ -78,10 +54,12 @@ export const query = graphql`
           }
           author {
             name
-            picture {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(width: 30)
+          }
+          picture {
+            img {
+              formats {
+                medium {
+                  url
                 }
               }
             }

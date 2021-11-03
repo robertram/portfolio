@@ -47,10 +47,9 @@ const Nav = () => {
 };
 
 const NavContainer = styled.div`
-  background-color: ${(props) => props.theme.global.bg};
   .Nav {
-    background-color: ${(props) => props.theme.global.bg} !important;
     transition: background 0.2s ease-out;
+    background-color: ${(props) => props.theme.global.bg} !important;
     color: ${(props) => props.theme.global.color} !important;
     &__button {
       color: ${(props) => props.theme.global.color};

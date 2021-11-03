@@ -15,3 +15,24 @@ exports.onCreateWebpackConfig = ({ actions, plugins, stage }) => {
     });
   }
 };
+
+exports.sourceNodes = ({ actions }) => {
+  const { createTypes } = actions;
+
+  const typeDefs = `
+
+  type strapiArticle implements Node {
+    title: String
+    description: String
+    author: Author
+    photo
+  }
+  
+  type Author implements Node {
+    name: String
+  }          
+
+
+  `;
+  createTypes(typeDefs);
+};

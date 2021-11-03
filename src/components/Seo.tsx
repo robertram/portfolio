@@ -15,7 +15,7 @@ export interface Props {
 
 const SEO = ({ seo = {} }) => {
   const { strapiGlobal } = useStaticQuery(query);
-  const { defaultSeo, siteName, favicon } = strapiGlobal;
+  const { defaultSeo, siteName } = strapiGlobal; //favicon
 
   // Merge default and page-specific SEO values
   const fullSeo = { ...defaultSeo, ...seo };
@@ -90,7 +90,7 @@ const SEO = ({ seo = {} }) => {
       link={[
         {
           rel: "icon",
-          href: favicon.publicURL,
+          href: "", //favicon.publicURL
         },
         {
           rel: "stylesheet",
@@ -124,7 +124,11 @@ export default SEO;
           publicURL
         }
       } */
-
+/*shareImage {
+          localFile {
+            publicURL
+          }
+        } */
 const query = graphql`
   query {
     strapiGlobal {
@@ -132,11 +136,6 @@ const query = graphql`
       defaultSeo {
         metaTitle
         metaDescription
-        shareImage {
-          localFile {
-            publicURL
-          }
-        }
       }
     }
   }
