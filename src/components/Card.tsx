@@ -1,50 +1,58 @@
 import React from "react";
 import { Link } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
+import styled from "styled-components";
 
 const Card = ({ article }) => {
   return (
-    <Link to={`/article/${article.node.slug}`} className="uk-link-reset">
-      <div className="uk-card uk-card-muted">
-        <div className="uk-card-media-top">
-          <GatsbyImage
-            image={article.node.image.localFile.childImageSharp.gatsbyImageData}
-            alt={`Hero image`}
+    <CardContainer>
+      <Link to={`/article/${article.node.slug}`} className="Card__link">
+        <div className="Card__imageContainer">
+          <img
+            src={article.node.picture.img[0].formats.medium.url}
+            alt={`${article.node.title} image`}
+            className="Card__image"
           />
         </div>
-        <div className="uk-card-body">
-          <p id="category" className="uk-text-uppercase">
-            {article.node.category.name}
+        <div>
+          <p className="Card__category header4">
+            {article.node.category.name.charAt(0).toUpperCase() +
+              article.node.category.name.slice(1)}
           </p>
-          <p id="title" className="uk-text-large">
-            {article.node.title}
-          </p>
+          <p className="Card__title header3">{article.node.title}</p>
           <div>
             <hr className="uk-divider-small" />
-            <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
+            <div>
               <div>
-                {article.node?.author?.picture && (
-                  <GatsbyImage
-                    image={
-                      article.node.author.picture.localFile.childImageSharp
-                        .gatsbyImageData
-                    }
-                    alt={`Picture of ${article.node.author?.name}`}
-                    style={{ borderRadius: "50%" }}
-                  />
-                )}
-              </div>
-              <div className="uk-width-expand">
-                <p className="uk-margin-remove-bottom">
+                <p className="Card__author header5">
                   {article.node.author?.name}
                 </p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </CardContainer>
   );
 };
+const CardContainer = styled.div`
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 30px;
+
+  .Card {
+    &__link {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    &__imageContainer {
+      margin-bottom: 10px;
+    }
+    &__title,
+    &__category,
+    &__author {
+    }
+  }
+`;
 
 export default Card;

@@ -12,12 +12,9 @@ const BlogPage = ({ data }) => {
       <BlogPageContainer>
         <Layout pageTitle="My Blog Posts" seo={data.strapiHomepage.seo}>
           <Nav />
-          <div className="uk-section">
-            <div className="uk-container uk-container-large">
-              <h1 className="header1">{data.strapiHomepage.hero.title}</h1>
-
-              <Articles articles={data.allStrapiArticle.edges} />
-            </div>
+          <div className="BlogPage__articlesContainer">
+            <h1 className="header1">{data.strapiHomepage.hero.title}</h1>
+            <Articles articles={data.allStrapiArticle.edges} />
           </div>
         </Layout>
       </BlogPageContainer>
@@ -30,21 +27,13 @@ const BlogPageContainer = styled.div`
     &__titleContainer {
       padding: 0;
     }
+    &__articlesContainer {
+    }
   }
 `;
 
 export const query = graphql`
   query {
-    allMdx(sort: { fields: frontmatter___date, order: ASC }) {
-      nodes {
-        frontmatter {
-          date(formatString: "MMMM D, YYYY")
-          title
-        }
-        id
-        slug
-      }
-    }
     strapiHomepage {
       hero {
         title
@@ -52,11 +41,6 @@ export const query = graphql`
       seo {
         metaTitle
         metaDescription
-        shareImage {
-          localFile {
-            publicURL
-          }
-        }
       }
     }
     allStrapiArticle {
@@ -68,19 +52,14 @@ export const query = graphql`
           category {
             name
           }
-          image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 660)
-              }
-            }
-          }
           author {
             name
-            picture {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(width: 30)
+          }
+          picture {
+            img {
+              formats {
+                medium {
+                  url
                 }
               }
             }

@@ -20,19 +20,19 @@ const Nav = () => {
   `);
   return (
     <NavContainer>
-      <nav className="uk-navbar-container Nav" data-uk-navbar>
-        <div className="uk-navbar-right">
-          <button
-            className="uk-button uk-button-default uk-margin-right Nav__button"
-            type="button"
-          >
-            Categories
-          </button>
-          <div uk-dropdown="animation: uk-animation-slide-top-small; duration: 1000">
-            <ul className="uk-nav uk-dropdown-nav">
+      <nav className="Nav">
+        <div className="">
+          <div>
+            <ul className="Nav__linksContainer">
               {data.allStrapiCategory.edges.map((category, i) => (
-                <li key={`category__${category.node.slug}`}>
-                  <Link to={`/category/${category.node.slug}`}>
+                <li
+                  key={`category__${category.node.slug}`}
+                  className="Nav__links"
+                >
+                  <Link
+                    to={`/category/${category.node.slug}`}
+                    className="Nav__links"
+                  >
                     {category.node.name.charAt(0).toUpperCase() +
                       category.node.name.slice(1)}
                   </Link>
@@ -47,13 +47,21 @@ const Nav = () => {
 };
 
 const NavContainer = styled.div`
-  background-color: ${(props) => props.theme.global.bg};
   .Nav {
-    background-color: ${(props) => props.theme.global.bg} !important;
     transition: background 0.2s ease-out;
+    background-color: ${(props) => props.theme.global.bg} !important;
     color: ${(props) => props.theme.global.color} !important;
+
     &__button {
       color: ${(props) => props.theme.global.color};
+    }
+    &__linksContainer {
+      display: flex;
+      justify-content: center;
+    }
+    &__links {
+      color: ${(props) => props.theme.global.color};
+      margin-right: 10px;
     }
   }
 `;

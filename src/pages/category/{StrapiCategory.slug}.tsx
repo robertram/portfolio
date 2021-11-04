@@ -36,19 +36,14 @@ export const query = graphql`
           category {
             name
           }
-          image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 660)
-              }
-            }
-          }
           author {
             name
-            picture {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(width: 30)
+          }
+          picture {
+            img {
+              formats {
+                medium {
+                  url
                 }
               }
             }

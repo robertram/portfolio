@@ -15,7 +15,7 @@ export interface Props {
 
 const SEO = ({ seo = {} }) => {
   const { strapiGlobal } = useStaticQuery(query);
-  const { defaultSeo, siteName, favicon } = strapiGlobal;
+  const { defaultSeo, siteName } = strapiGlobal; //favicon
 
   // Merge default and page-specific SEO values
   const fullSeo = { ...defaultSeo, ...seo };
@@ -90,7 +90,7 @@ const SEO = ({ seo = {} }) => {
       link={[
         {
           rel: "icon",
-          href: favicon.publicURL,
+          href: "", //favicon.publicURL
         },
         {
           rel: "stylesheet",
@@ -101,17 +101,7 @@ const SEO = ({ seo = {} }) => {
           href: "https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/css/uikit.min.css",
         },
       ]}
-      script={[
-        {
-          src: "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js",
-        },
-        {
-          src: "https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js",
-        },
-        {
-          src: "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.js",
-        },
-      ]}
+      //script={}
       meta={metaTags}
     />
   );
@@ -119,23 +109,23 @@ const SEO = ({ seo = {} }) => {
 
 export default SEO;
 
+/*favicon {
+        localFile {
+          publicURL
+        }
+      } */
+/*shareImage {
+          localFile {
+            publicURL
+          }
+        } */
 const query = graphql`
   query {
     strapiGlobal {
       siteName
-      favicon {
-        localFile {
-          publicURL
-        }
-      }
       defaultSeo {
         metaTitle
         metaDescription
-        shareImage {
-          localFile {
-            publicURL
-          }
-        }
       }
     }
   }

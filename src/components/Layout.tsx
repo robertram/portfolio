@@ -16,7 +16,7 @@ export interface Props {
 
 const Layout = (props: Props) => {
   const { theme } = useContext(ThemeContext);
-  const { pageTitle, children } = props;
+  const { pageTitle, children, seo } = props;
   useEffect(() => {
     saveThemeModePrefences();
   }, []);
@@ -33,15 +33,11 @@ const Layout = (props: Props) => {
         seo {
           metaTitle
           metaDescription
-          shareImage {
-            localFile {
-              publicURL
-            }
-          }
         }
       }
     }
   `);
+
   return (
     <Theme theme={theme === "dark" ? darkTheme : lightTheme}>
       <Helmet>
@@ -51,7 +47,7 @@ const Layout = (props: Props) => {
         </title>
         <meta id="colorScheme" name="color-scheme" content={theme || "light"} />
       </Helmet>
-      <Seo seo={data.strapiHomepage.seo} />
+      <Seo seo={seo ? seo : data.strapiHomepage.seo} />
       <LayoutContainer>
         <GlobalStyle theme={theme === "dark" ? darkTheme : lightTheme} />
         <Header />
@@ -61,9 +57,6 @@ const Layout = (props: Props) => {
   );
 };
 
-const LayoutContainer = styled.div`
-  transition: background 0.2s ease-out;
-  background-color: ${(props) => props.theme.global.bg};
-`;
+const LayoutContainer = styled.div``;
 
 export default Layout;

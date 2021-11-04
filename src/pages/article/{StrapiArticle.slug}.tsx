@@ -1,14 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
 import Moment from "react-moment";
 import Layout from "../../components/Layout";
 import Markdown from "react-markdown";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import { ThemeProvider } from "../../context/themeContext";
+import styled from "styled-components";
 
 const Article = ({ data }) => {
   const article = data.strapiArticle;
+  const writter = data.strapiWriter;
   const seo = {
     metaTitle: article.title,
     metaDescription: article.description,
@@ -19,67 +19,59 @@ const Article = ({ data }) => {
   return (
     <ThemeProvider>
       <Layout seo={seo}>
-        <div>
+        <ArticleContainer className="Article">
           <div>
-            {
-              /*
-           TODO: childrenImageSharp research
-          */
-              console.log(
-                "childImageSharp",
-                article.image.localFile.childrenImageSharp[0].gatsbyImageData
-              )
-            }
-            {
-              <GatsbyImage
-                style={{
-                  gridArea: "1/1",
-                }}
+            {article.picture && (
+              <img
+                src={article.picture.img[0].formats.large.url}
                 alt={`Picture for ${article.title} article`}
-                image={
-                  article.image.localFile.childrenImageSharp[0].gatsbyImageData
-                }
-                layout="fullWidth"
+                className="Article__image"
               />
-            }
+            )}
           </div>
           <div className="uk-section">
             <div className="uk-container uk-container-small">
               <h1>{article.title}</h1>
-              <Markdown children={article.content} escapeHtml={false} />
+              <Markdown children={article.content} />
 
               <hr className="uk-divider-small" />
 
-              <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
+              <div className="uk-grid-small uk-flex-left">
                 <div>
-                  {/*article.author.picture && (
-                  <GatsbyImage
-                    image={
-                      article.author.picture.localFile.childImageSharp
-                        .gatsbyImageData
-                    }
-                    alt={`Picture of ${article.author.name}`}
-                    style={{ borderRadius: "50%" }}
-                  />
-                  )*/}
+                  {writter.picture && (
+                    <img
+                      src={writter.picture.img[0].formats.thumbnail.url}
+                      alt={`Picture of ${article.author.name}`}
+                    />
+                  )}
                 </div>
                 <div className="uk-width-expand">
                   <p className="uk-margin-remove-bottom">
                     By {article.author.name}
                   </p>
                   <p className="uk-text-meta uk-margin-remove-top">
-                    {/*<Moment format="MMM Do YYYY">{article.published_at}</Moment>*/}
+                    <Moment format="MMM Do YYYY">{article.published_at}</Moment>
                     {article.published_at}
                   </p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </ArticleContainer>
       </Layout>
     </ThemeProvider>
   );
 };
+
+const ArticleContainer = styled.div`
+  height: 100%;
+  .Article {
+    height: 100%;
+    &__image {
+      width: 100%;
+    }
+  }
+`;
 
 export const query = graphql`
   query ArticleQuery($slug: String!) {
@@ -89,20 +81,25 @@ export const query = graphql`
       description
       content
       published_at
-      image {
-        localFile {
-          publicURL
-          childrenImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      author {
+        name
+      }
+      picture {
+        img {
+          formats {
+            large {
+              url
+            }
           }
         }
       }
-      author {
-        name
-        picture {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(width: 30)
+    }
+    strapiWriter {
+      picture {
+        img {
+          formats {
+            thumbnail {
+              url
             }
           }
         }
