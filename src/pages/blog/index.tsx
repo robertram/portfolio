@@ -12,11 +12,9 @@ const BlogPage = ({ data }) => {
       <BlogPageContainer>
         <Layout pageTitle="My Blog Posts" seo={data.strapiHomepage.seo}>
           <Nav />
-          <div className="uk-section">
-            <div className="uk-container uk-container-large">
-              <h1 className="header1">{data.strapiHomepage.hero.title}</h1>
-              <Articles articles={data.allStrapiArticle.edges} />
-            </div>
+          <div className="BlogPage__articlesContainer">
+            <h1 className="header1">{data.strapiHomepage.hero.title}</h1>
+            <Articles articles={data.allStrapiArticle.edges} />
           </div>
         </Layout>
       </BlogPageContainer>
@@ -28,6 +26,8 @@ const BlogPageContainer = styled.div`
   .BlogPage {
     &__titleContainer {
       padding: 0;
+    }
+    &__articlesContainer {
     }
   }
 `;

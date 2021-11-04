@@ -39,6 +39,15 @@ export const query = graphql`
           author {
             name
           }
+          picture {
+            img {
+              formats {
+                medium {
+                  url
+                }
+              }
+            }
+          }
         }
       }
     }

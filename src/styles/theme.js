@@ -73,7 +73,6 @@ export const GlobalStyle = createGlobalStyle`
   }
   html,
   body {
-    height: 100%;
     font-family: 'Slabo 13px';
     color: ${(props) => props.theme.global.color};
   }
@@ -82,6 +81,7 @@ export const GlobalStyle = createGlobalStyle`
     transition: background 0.2s ease-out;
     background-color: ${(props) => props.theme.global.bg};
     color: ${(props) => props.theme.global.color};
+    min-height: 100vh;
   }
   a {
     color: ${(props) => props.theme.global.link};
