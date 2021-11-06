@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
+import tw from "twin.macro";
 
 const Nav = () => {
   const data = useStaticQuery(graphql`
@@ -23,7 +24,7 @@ const Nav = () => {
       <nav className="Nav">
         <div className="">
           <div>
-            <ul className="Nav__linksContainer">
+            <ul className="Nav__linksContainer ">
               {data.allStrapiCategory.edges.map((category, i) => (
                 <li
                   key={`category__${category.node.slug}`}
@@ -56,10 +57,11 @@ const NavContainer = styled.div`
       color: ${(props) => props.theme.global.color};
     }
     &__linksContainer {
-      display: flex;
+      ${tw`flex flex-col sm:flex-row`}
       justify-content: center;
     }
     &__links {
+      ${tw`flex-initial `}
       color: ${(props) => props.theme.global.color};
       margin-right: 10px;
     }

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { ThemeContext } from "../context/themeContext";
+import tw from "twin.macro";
 
 const items = [
   { link: "/", title: "Home" },
@@ -41,13 +42,14 @@ const HeaderContainer = styled.div`
   background-color: ${(props) => props.theme.global.bg2};
   .Header {
     &__nav {
-      display: flex;
+      ${tw`flex`}
     }
     &__itemsList {
-      display: flex;
+      ${tw`flex flex-col sm:flex-row`}
       padding: 0;
     }
     &__item {
+      ${tw`flex-initial`}
       list-style-type: none;
       margin: 0 10px;
       &:hover {

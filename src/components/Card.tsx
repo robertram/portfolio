@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import tw from "twin.macro";
 
 const Card = ({ article }) => {
   return (
@@ -36,8 +37,8 @@ const Card = ({ article }) => {
 };
 const CardContainer = styled.div`
   width: fit-content;
-  margin: auto;
   margin-bottom: 30px;
+  height: 100%;
 
   .Card {
     &__link {
@@ -46,8 +47,13 @@ const CardContainer = styled.div`
       }
     }
     &__imageContainer {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
+    &__image {
+      ${tw`md:w-96 md:h-52`}
+      object-fit: cover;
+    }
+
     &__title,
     &__category,
     &__author {
