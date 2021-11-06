@@ -8,9 +8,10 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
+    "develop": "npm run watch:css & gatsby develop",
+    "start": "npm run watch:css & gatsby develop",
+    "build": "postcss src/assets/tailwind.css -o src/assets/styles.css & gatsby build",
+    "watch:css": "postcss src/assets/tailwind.css -o src/assets/styles.css",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
@@ -42,6 +43,11 @@
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.4",
-    "@types/styled-components": "^5.1.15"
+    "@types/styled-components": "^5.1.15",
+    "autoprefixer": "^10.4.0",
+    "babel-plugin-macros": "^3.1.0",
+    "postcss-cli": "^9.0.2",
+    "tailwindcss": "^2.2.19",
+    "twin.macro": "^2.8.1"
   }
 }

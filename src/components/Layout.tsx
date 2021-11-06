@@ -7,6 +7,7 @@ import { GlobalStyle } from "../styles/theme";
 import Theme, { darkTheme, lightTheme } from "../styles/theme";
 import { ThemeContext, saveThemeModePrefences } from "../context/themeContext";
 import Seo from "./Seo";
+import "../styles/styles.css";
 
 export interface Props {
   pageTitle?: string;

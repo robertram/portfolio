@@ -1,10 +1,11 @@
 import * as React from "react";
 import Layout from "../../components/Layout";
 import styled from "styled-components";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import { ThemeProvider } from "../../context/themeContext";
 import Articles from "../../components/Articles";
 import Nav from "../../components/Nav";
+import tw from "twin.macro";
 
 const BlogPage = ({ data }) => {
   return (
@@ -12,7 +13,7 @@ const BlogPage = ({ data }) => {
       <BlogPageContainer>
         <Layout pageTitle="My Blog Posts" seo={data.strapiHomepage.seo}>
           <Nav />
-          <div className="BlogPage__articlesContainer">
+          <div className="BlogPage__articlesContainer ">
             <h1 className="header1">{data.strapiHomepage.hero.title}</h1>
             <Articles articles={data.allStrapiArticle.edges} />
           </div>
@@ -28,6 +29,7 @@ const BlogPageContainer = styled.div`
       padding: 0;
     }
     &__articlesContainer {
+      ${tw`container mx-auto px-0 `}
     }
   }
 `;
