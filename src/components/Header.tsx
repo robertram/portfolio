@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { ThemeContext } from "../context/themeContext";
 import tw from "twin.macro";
+import Sun from "../images/sun.svg";
+import Moon from "../images/moon.svg";
 
 const items = [
   { link: "/", title: "Home" },
@@ -25,8 +27,11 @@ const Header = () => {
           ))}
         </ul>
 
-        <button onClick={() => setMode(theme === "dark" ? "light" : "dark")}>
-          {theme === "dark" ? "Light" : "Dark"}
+        <button
+          onClick={() => setMode(theme === "dark" ? "light" : "dark")}
+          className="Header__modeButton"
+        >
+          {theme === "dark" ? <Sun /> : <Moon />}
         </button>
       </nav>
     </HeaderContainer>
@@ -66,6 +71,15 @@ const HeaderContainer = styled.div`
       color: ${(props) => props.theme.global.link};
       &:hover {
         color: ${(props) => props.theme.global.linkHover};
+      }
+    }
+    &__modeButton {
+      border: none;
+      background: none;
+      height: 20px;
+      cursor: pointer;
+      svg {
+        width: 20px;
       }
     }
   }

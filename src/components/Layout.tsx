@@ -11,7 +11,7 @@ import "../styles/styles.css";
 
 export interface Props {
   pageTitle?: string;
-  children;
+  children: any;
   seo?: any;
 }
 
