@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "gatsby";
 import styled, { css } from "styled-components";
 import { ThemeContext } from "../context/themeContext";
@@ -20,33 +20,46 @@ const items = [
 const Header = () => {
   const { theme, setMode } = useContext(ThemeContext);
   const [openMobile, setOpenMobile] = useState(false);
+  useEffect(() => {
+    if (openMobile) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [openMobile]);
   return (
     <HeaderContainer className="Header" openMobile={openMobile}>
       <nav className="Header__nav">
-        <ul className="Header__itemsList">
-          {items.map((item, index) => (
-            <li className="Header__item" key={index}>
-              <Link
-                to={item.link}
-                className="Header__link body"
-                title={item.title}
-              >
-                <a className="Header__linkItem">{item.title}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="Header__logoLinkContainer">
+          <a href="/" title="Home" className="Header__logoLink">
+            <Logo className="Header__logo" />
+          </a>
+        </div>
 
-        <a href="/" title="Home" className="Header__logoLink">
-          <Logo className="Header__logo" />
-        </a>
+        <div className="Header__menu">
+          <ul className="Header__itemsList">
+            {items.map((item, index) => (
+              <li className="Header__item" key={index}>
+                <Link
+                  to={item.link}
+                  className="Header__link body"
+                  title={item.title}
+                >
+                  <a className="Header__linkItem">{item.title}</a>
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-        <button
-          onClick={() => setMode(theme === "dark" ? "light" : "dark")}
-          className="Header__modeButton"
-        >
-          {theme === "dark" ? <Sun /> : <Moon />}
-        </button>
+          <div className="Header__modeButtonContainer">
+            <button
+              onClick={() => setMode(theme === "dark" ? "light" : "dark")}
+              className="Header__modeButton"
+            >
+              {theme === "dark" ? <Sun /> : <Moon />}
+            </button>
+          </div>
+        </div>
         <button
           onClick={() => setOpenMobile(!openMobile)}
           className="Header__mobileToggle"
@@ -75,12 +88,19 @@ const HeaderContainer = styled.div<Props>`
       ${tw`flex justify-between max-w-5xl pr-10 pl-10`}
       width: 100%;
     }
+    &__logoLinkContainer {
+      width: 45%;
+      @media only screen and (max-width: 640px) {
+        width: auto;
+      }
+    }
     &__itemsList {
       ${tw`flex flex-col sm:flex-row`}
       padding: 0;
       margin: 0;
+
       @media only screen and (max-width: 640px) {
-        display: none;
+        margin-bottom: 20px;
       }
     }
     &__item {
@@ -90,6 +110,11 @@ const HeaderContainer = styled.div<Props>`
       &:hover {
         text-decoration: none;
         color: ${(props) => props.theme.global.linkHover};
+      }
+
+      @media only screen and (max-width: 640px) {
+        margin: auto;
+        margin-bottom: 30px;
       }
     }
     &__link {
@@ -103,15 +128,45 @@ const HeaderContainer = styled.div<Props>`
         color: ${(props) => props.theme.global.linkHover};
       }
     }
+    &__menu {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      width: 65%;
+
+      @media only screen and (max-width: 640px) {
+        display: none;
+        ${(props) =>
+          props.openMobile &&
+          css`
+            display: block;
+            flex-direction: column;
+            justify-content: start;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            background: ${(props) => props.theme.global.bg2};
+            transition: background 0.2s ease-out;
+            height: 100%;
+            padding-top: 80px;
+          `}
+      }
+    }
+
+    &__modeButtonContainer {
+      display: flex;
+      justify-content: center;
+      @media only screen and (max-width: 640px) {
+        width: 100%;
+      }
+    }
     &__modeButton {
       border: none;
       background: none;
       height: 20px;
       cursor: pointer;
 
-      @media only screen and (max-width: 640px) {
-        display: none;
-      }
       svg {
         width: 20px;
       }
@@ -158,7 +213,7 @@ const HeaderContainer = styled.div<Props>`
       position: absolute;
       height: 3px;
       width: 100%;
-      background-color: white;
+      background-color: ${(props) => props.theme.global.color};
       border-radius: 9px;
       opacity: 1;
       left: 0;
