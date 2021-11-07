@@ -1,10 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "gatsby";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ThemeContext } from "../context/themeContext";
 import tw from "twin.macro";
 import Sun from "../images/sun.svg";
 import Moon from "../images/moon.svg";
+import Logo from "../images/logo.svg";
+
+export interface Props {
+  openMobile: boolean;
+}
 
 const items = [
   { link: "/", title: "Home" },
@@ -14,18 +19,27 @@ const items = [
 
 const Header = () => {
   const { theme, setMode } = useContext(ThemeContext);
+  const [openMobile, setOpenMobile] = useState(false);
   return (
-    <HeaderContainer className="Header">
+    <HeaderContainer className="Header" openMobile={openMobile}>
       <nav className="Header__nav">
         <ul className="Header__itemsList">
           {items.map((item, index) => (
             <li className="Header__item" key={index}>
-              <Link to={item.link} className="Header__link body">
+              <Link
+                to={item.link}
+                className="Header__link body"
+                title={item.title}
+              >
                 <a className="Header__linkItem">{item.title}</a>
               </Link>
             </li>
           ))}
         </ul>
+
+        <a href="/" title="Home" className="Header__logoLink">
+          <Logo className="Header__logo" />
+        </a>
 
         <button
           onClick={() => setMode(theme === "dark" ? "light" : "dark")}
@@ -33,12 +47,23 @@ const Header = () => {
         >
           {theme === "dark" ? <Sun /> : <Moon />}
         </button>
+        <button
+          onClick={() => setOpenMobile(!openMobile)}
+          className="Header__mobileToggle"
+        >
+          <div className="Header__hamburguerLineContainer">
+            <span className="Header__hamburguerLine"></span>
+            <span className="Header__hamburguerLine"></span>
+            <span className="Header__hamburguerLine"></span>
+            <span className="Header__hamburguerLine"></span>
+          </div>
+        </button>
       </nav>
     </HeaderContainer>
   );
 };
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.div<Props>`
   display: flex;
   justify-content: center;
   margin: auto 0;
@@ -47,16 +72,21 @@ const HeaderContainer = styled.div`
   background-color: ${(props) => props.theme.global.bg2};
   .Header {
     &__nav {
-      ${tw`flex`}
+      ${tw`flex justify-between max-w-5xl pr-10 pl-10`}
+      width: 100%;
     }
     &__itemsList {
       ${tw`flex flex-col sm:flex-row`}
       padding: 0;
+      margin: 0;
+      @media only screen and (max-width: 640px) {
+        display: none;
+      }
     }
     &__item {
       ${tw`flex-initial`}
       list-style-type: none;
-      margin: 0 10px;
+      margin-right: 20px;
       &:hover {
         text-decoration: none;
         color: ${(props) => props.theme.global.linkHover};
@@ -78,10 +108,103 @@ const HeaderContainer = styled.div`
       background: none;
       height: 20px;
       cursor: pointer;
+
+      @media only screen and (max-width: 640px) {
+        display: none;
+      }
       svg {
         width: 20px;
       }
+      &:hover {
+        svg {
+          stroke: ${(props) => props.theme.global.linkHover};
+          path {
+            fill: ${(props) => props.theme.global.linkHover};
+          }
+        }
+      }
     }
+
+    &__logo {
+      path {
+        stroke: ${(props) => props.theme.global.color};
+        fill: ${(props) => props.theme.global.color};
+      }
+    }
+
+    &__mobileToggle {
+      padding: 0;
+      border: none;
+      background: none;
+      display: none;
+      @media only screen and (max-width: 640px) {
+        display: block;
+      }
+    }
+
+    &__hamburguerLineContainer {
+      width: 25px;
+      height: 20px;
+      position: relative;
+      margin: 0px auto;
+      transform: rotate(0deg);
+      transition: 0.5s ease-in-out;
+      cursor: pointer;
+      display: block;
+    }
+
+    &__hamburguerLine {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background-color: white;
+      border-radius: 9px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: 0.25s ease-in-out;
+    }
+
+    &__hamburguerLine:nth-child(1) {
+      top: 0;
+    }
+
+    &__hamburguerLine:nth-child(2) {
+      top: 10px;
+    }
+
+    &__hamburguerLine:nth-child(3) {
+      top: 10px;
+    }
+
+    &__hamburguerLine:nth-child(4) {
+      top: 20px;
+    }
+
+    ${(props) =>
+      props.openMobile &&
+      css`
+        &__hamburguerLine:nth-child(1) {
+          top: 18px;
+          width: 0;
+          left: 50%;
+        }
+
+        &__hamburguerLine:nth-child(2) {
+          transform: rotate(45deg);
+        }
+
+        &__hamburguerLine:nth-child(3) {
+          transform: rotate(-45deg);
+        }
+
+        &__hamburguerLine:nth-child(4) {
+          top: 18px;
+          width: 0;
+          left: 50%;
+        }
+      `}
   }
 `;
 
