@@ -5,8 +5,9 @@ import Layout from "../../components/Layout";
 import Markdown from "react-markdown";
 import { ThemeProvider } from "../../context/themeContext";
 import styled from "styled-components";
+import tw from "twin.macro";
 
-const Article = ({ data }) => {
+const Article = ({ data }: any) => {
   const article = data.strapiArticle;
   const writter = data.strapiWriter;
   const seo = {
@@ -20,7 +21,7 @@ const Article = ({ data }) => {
     <ThemeProvider>
       <Layout seo={seo}>
         <ArticleContainer className="Article">
-          <div>
+          <div className="Article__wrapper">
             {article.picture && (
               <img
                 src={article.picture.img[0].formats.large.url}
@@ -28,15 +29,13 @@ const Article = ({ data }) => {
                 className="Article__image"
               />
             )}
-          </div>
-          <div className="uk-section">
-            <div className="uk-container uk-container-small">
+            <div className="Article__content">
               <h1>{article.title}</h1>
               <Markdown children={article.content} />
 
-              <hr className="uk-divider-small" />
+              <hr className="" />
 
-              <div className="uk-grid-small uk-flex-left">
+              <div className="">
                 <div>
                   {writter.picture && (
                     <img
@@ -45,11 +44,9 @@ const Article = ({ data }) => {
                     />
                   )}
                 </div>
-                <div className="uk-width-expand">
-                  <p className="uk-margin-remove-bottom">
-                    By {article.author.name}
-                  </p>
-                  <p className="uk-text-meta uk-margin-remove-top">
+                <div className="">
+                  <p className="">By {article.author.name}</p>
+                  <p className="">
                     <Moment format="MMM Do YYYY">{article.published_at}</Moment>
                     {article.published_at}
                   </p>
@@ -67,6 +64,15 @@ const ArticleContainer = styled.div`
   height: 100%;
   .Article {
     height: 100%;
+    &__content {
+      margin-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    &__wrapper {
+      ${tw`max-w-5xl pr-10 pl-10`}
+      margin: auto;
+    }
     &__image {
       width: 100%;
     }

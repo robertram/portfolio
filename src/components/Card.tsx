@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import tw from "twin.macro";
 
-const Card = ({ article }) => {
+const Card = ({ article }: any) => {
   return (
     <CardContainer>
       <Link to={`/article/${article.node.slug}`} className="Card__link">
@@ -39,6 +39,7 @@ const CardContainer = styled.div`
   width: fit-content;
   margin-bottom: 30px;
   height: 100%;
+  background: ${(props) => props.theme.global.bg2};
 
   .Card {
     &__link {

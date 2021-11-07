@@ -3,12 +3,17 @@ import Card from "./Card";
 import styled from "styled-components";
 import tw from "twin.macro";
 
-const Articles = ({ articles }) => {
+const Articles = ({ articles }: any) => {
   return (
     <ArticlesContainer>
-      {articles.map((article, i) => {
+      {articles.map((article: any, index: number) => {
         return (
-          <Card article={article} key={`article__left__${article.node.slug}`} />
+          <div key={index}>
+            <Card
+              article={article}
+              key={`article__left__${article.node.slug}`}
+            />
+          </div>
         );
       })}
     </ArticlesContainer>

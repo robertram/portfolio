@@ -7,24 +7,30 @@ import Articles from "../../components/Articles";
 import Nav from "../../components/Nav";
 import tw from "twin.macro";
 
-const BlogPage = ({ data }) => {
+const BlogPage = ({ data }: any) => {
   return (
     <ThemeProvider>
-      <BlogPageContainer>
-        <Layout pageTitle="My Blog Posts" seo={data.strapiHomepage.seo}>
+      <Layout pageTitle="My Blog Posts" seo={data.strapiHomepage.seo}>
+        <BlogPageContainer>
           <Nav />
-          <div className="BlogPage__articlesContainer ">
-            <h1 className="header1">{data.strapiHomepage.hero.title}</h1>
-            <Articles articles={data.allStrapiArticle.edges} />
+          <div className="BlogPage__wrapper">
+            <div className="BlogPage__articlesContainer ">
+              <h1 className="header1">{data.strapiHomepage.hero.title}</h1>
+              <Articles articles={data.allStrapiArticle.edges} />
+            </div>
           </div>
-        </Layout>
-      </BlogPageContainer>
+        </BlogPageContainer>
+      </Layout>
     </ThemeProvider>
   );
 };
 
 const BlogPageContainer = styled.div`
   .BlogPage {
+    &__wrapper {
+      ${tw`max-w-5xl pr-10 pl-10`}
+      margin: auto;
+    }
     &__titleContainer {
       padding: 0;
     }
