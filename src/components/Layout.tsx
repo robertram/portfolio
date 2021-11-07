@@ -50,11 +50,12 @@ const Layout = (props: Props) => {
       </Helmet>
       <Seo seo={seo ? seo : data.strapiHomepage.seo} />
       <LayoutContainer>
-        <GlobalStyle theme={theme === "dark" ? darkTheme : lightTheme} />
-        <Header />
-        {theme === "dark" ? "darkTheme" : "lightTheme"}
-        {console.log(theme === "dark" ? darkTheme : lightTheme)}
-        <main>{children}</main>
+        <GlobalStyle theme={theme === "dark" ? darkTheme : lightTheme}>
+          <Header />
+          {theme === "dark" ? "darkTheme" : "lightTheme"}
+          {console.log(theme === "dark" ? darkTheme : lightTheme)}
+          <main>{children}</main>
+        </GlobalStyle>
       </LayoutContainer>
     </Theme>
   );
