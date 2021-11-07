@@ -28,7 +28,7 @@ export const saveThemeModePrefences = () => {
   if (typeof window !== "undefined") {
     mode = localStorage.getItem("mode") || "system";
   }
-  let theme;
+  let theme: any;
   if (mode === "system") {
     const isSystemInDarkMode = matchMedia(
       "(prefers-color-scheme: dark)"
@@ -50,7 +50,7 @@ export const clearAndReload = () => {
 
 export const ThemeProvider: FunctionComponent = ({ children }) => {
   const [mode, setMode] = useState<Mode>(() => {
-    let initialMode = null;
+    let initialMode: any = null;
     if (typeof window !== "undefined") {
       initialMode =
         (localStorage.getItem(localStorageKey) as Mode | undefined) || "system";
@@ -64,6 +64,12 @@ export const ThemeProvider: FunctionComponent = ({ children }) => {
       localStorage.setItem(localStorageKey, mode);
     }
   }, [mode]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem(localStorageKey, mode);
+    }
+  }, []);
 
   const [theme, setTheme] = useState<Theme>(() => {
     if (mode !== "system") {
