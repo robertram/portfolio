@@ -35,6 +35,8 @@ const Header = () => {
             <Logo className="Header__logo" />
           </a>
         </div>
+        {theme === "dark" ? "darkTheme" : "lightTheme"}
+        {console.log("header", theme === "dark" ? "darkTheme" : "lightTheme")}
 
         <div className="Header__menu">
           <ul className="Header__itemsList">

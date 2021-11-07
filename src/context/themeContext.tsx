@@ -65,12 +65,6 @@ export const ThemeProvider: FunctionComponent = ({ children }) => {
     }
   }, [mode]);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem(localStorageKey, mode);
-    }
-  }, []);
-
   const [theme, setTheme] = useState<Theme>(() => {
     if (mode !== "system") {
       return mode;

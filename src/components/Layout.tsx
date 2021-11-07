@@ -52,6 +52,8 @@ const Layout = (props: Props) => {
       <LayoutContainer>
         <GlobalStyle theme={theme === "dark" ? darkTheme : lightTheme} />
         <Header />
+        {theme === "dark" ? "darkTheme" : "lightTheme"}
+        {console.log(theme === "dark" ? darkTheme : lightTheme)}
         <main>{children}</main>
       </LayoutContainer>
     </Theme>
