@@ -39,7 +39,7 @@ const Header = () => {
           <ul className="Header__itemsList flex flex-col sm:flex-row p-0 mb-5 sm:m-0">
             {items.map((item, index) => (
               <li
-                className="Header__item flex-initial m-auto mb-6 sm:mr-6 list-none no-underline"
+                className="Header__item flex-initial m-auto mb-6 sm:mb-0 sm:mr-6 list-none no-underline"
                 key={index}
               >
                 <Link
