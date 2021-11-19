@@ -32,27 +32,25 @@ const Header = () => {
       openMobile={openMobile}
     >
       <nav className="Header__nav flex justify-between max-w-5xl pr-10 pl-10 w-full">
-        <div className="Header__logoLinkContainer">
+        <div className="Header__logoLinkContainer my-auto">
           <a href="/" title="Home" className="Header__logoLink">
             <Logo className="Header__logo" />
           </a>
         </div>
 
         <div className="Header__menu dark:bg-background-dark bg-background-light">
-          <ul className="Header__itemsList flex flex-col sm:flex-row p-0 mb-5 sm:m-0">
+          <ul className="Header__itemsList flex flex-col sm:flex-row p-0 mb-5 sm:m-0 sm:my-auto">
             {items.map((item, index) => (
               <li
-                className="Header__item flex-initial m-auto mb-6 sm:mb-0 sm:mr-6 list-none no-underline hover:text-linkHover"
+                className="Header__item flex-initial m-auto mb-6 sm:mb-0 sm:mr-6 list-none no-underline"
                 key={index}
               >
                 <Link
                   to={item.link}
-                  className="Header__link body no-underline dark:text-link-dark text-link-light"
+                  className="Header__link body no-underline dark:text-link-dark text-link-light hover:text-linkHover"
                   title={item.title}
                 >
-                  <a className="Header__linkItem no-underline dark:text-link-dark text-link-light hover:text-linkHover">
-                    {item.title}
-                  </a>
+                  {item.title}
                 </Link>
               </li>
             ))}
@@ -61,13 +59,9 @@ const Header = () => {
           <div className="Header__modeButtonContainer flex justify-center w-full sm:w-0 ">
             <button
               onClick={() => setMode(theme === "dark" ? "light" : "dark")}
-              className="Header__modeButton"
+              className="Header__modeButton text-grey-darker text-base text-center leading-normal hover:text-red "
             >
-              {theme === "dark" ? (
-                <Sun className="Header__Sun" />
-              ) : (
-                <Moon className="Header__Moon" />
-              )}
+              {theme === "dark" ? <Sun /> : <Moon />}
             </button>
           </div>
         </div>
@@ -100,19 +94,8 @@ const HeaderContainer = styled.div<Props>`
         width: auto;
       }
     }
-    &__item {
-      &:hover {
-        //color: ${(props) => props.theme.global.linkHover};
-      }
-    }
     &__link {
       color: black;
-    }
-    &__linkItem {
-      //color: ${(props) => props.theme.global.link};
-      &:hover {
-        //color: ${(props) => props.theme.global.linkHover};
-      }
     }
     &__menu {
       display: flex;
@@ -148,14 +131,14 @@ const HeaderContainer = styled.div<Props>`
       svg {
         width: 20px;
       }
-      &:hover {
+      /*&:hover {
         svg {
           stroke: ${(props) => props.theme.global.linkHover};
           path {
             fill: ${(props) => props.theme.global.linkHover};
           }
         }
-      }
+      }*/
     }
 
     &__logo {
