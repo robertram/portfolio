@@ -50,15 +50,24 @@ const Layout = (props: Props) => {
       </Helmet>
       <Seo seo={seo ? seo : data.strapiHomepage.seo} />
       <LayoutContainer>
-        <GlobalStyle theme={theme === "dark" ? darkTheme : lightTheme} />
+        <GlobalStyle />
         <Header />
-        {console.log(theme === "dark" ? darkTheme : lightTheme)}
-        <main>{children}</main>
+        <main
+          className={`${
+            theme === "dark" ? "dark" : ""
+          } dark:bg-background-dark bg-background-light h-screen`}
+        >
+          {children}
+        </main>
       </LayoutContainer>
     </Theme>
   );
 };
 
-const LayoutContainer = styled.div``;
+const LayoutContainer = styled.div`
+  main {
+    min-height: 100vh;
+  }
+`;
 
 export default Layout;

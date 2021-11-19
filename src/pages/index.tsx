@@ -9,7 +9,9 @@ const IndexPage = () => {
       <Layout pageTitle="Home Page">
         <HomeContainer>
           <div className="Home__wrapper max-w-5xl pr-10 pl-10 m-auto">
-            <h1>Home Page</h1>
+            <h1 className="dark:text-text-dark text-text-light text-5xl">
+              Home Page!
+            </h1>
           </div>
         </HomeContainer>
       </Layout>
