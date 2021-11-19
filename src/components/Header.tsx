@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from "react";
 import { Link } from "gatsby";
 import styled, { css } from "styled-components";
 import { ThemeContext } from "../context/themeContext";
-import tw from "twin.macro";
 import Sun from "../images/sun.svg";
 import Moon from "../images/moon.svg";
 import Logo from "../images/logo.svg";
@@ -29,7 +28,7 @@ const Header = () => {
   }, [openMobile]);
   return (
     <HeaderContainer className="Header" openMobile={openMobile}>
-      <nav className="Header__nav">
+      <nav className="Header__nav flex justify-between max-w-5xl pr-10 pl-10 w-full">
         <div className="Header__logoLinkContainer">
           <a href="/" title="Home" className="Header__logoLink">
             <Logo className="Header__logo" />
@@ -37,15 +36,18 @@ const Header = () => {
         </div>
 
         <div className="Header__menu">
-          <ul className="Header__itemsList">
+          <ul className="Header__itemsList flex flex-col sm:flex-row p-0 mb-5 sm:m-0">
             {items.map((item, index) => (
-              <li className="Header__item" key={index}>
+              <li
+                className="Header__item flex-initial m-auto mb-6 sm:mr-6 list-none no-underline"
+                key={index}
+              >
                 <Link
                   to={item.link}
-                  className="Header__link body"
+                  className="Header__link body no-underline"
                   title={item.title}
                 >
-                  <a className="Header__linkItem">{item.title}</a>
+                  <a className="Header__linkItem no-underline">{item.title}</a>
                 </Link>
               </li>
             ))}
@@ -84,45 +86,21 @@ const HeaderContainer = styled.div<Props>`
   transition: background 0.2s ease-out;
   background-color: ${(props) => props.theme.global.bg2};
   .Header {
-    &__nav {
-      ${tw`flex justify-between max-w-5xl pr-10 pl-10`}
-      width: 100%;
-    }
     &__logoLinkContainer {
       width: 45%;
       @media only screen and (max-width: 640px) {
         width: auto;
       }
     }
-    &__itemsList {
-      ${tw`flex flex-col sm:flex-row`}
-      padding: 0;
-      margin: 0;
-
-      @media only screen and (max-width: 640px) {
-        margin-bottom: 20px;
-      }
-    }
     &__item {
-      ${tw`flex-initial`}
-      list-style-type: none;
-      margin-right: 20px;
       &:hover {
-        text-decoration: none;
         color: ${(props) => props.theme.global.linkHover};
-      }
-
-      @media only screen and (max-width: 640px) {
-        margin: auto;
-        margin-bottom: 30px;
       }
     }
     &__link {
       color: black;
-      text-decoration: none;
     }
     &__linkItem {
-      text-decoration: none;
       color: ${(props) => props.theme.global.link};
       &:hover {
         color: ${(props) => props.theme.global.linkHover};

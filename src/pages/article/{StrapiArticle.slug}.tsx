@@ -5,7 +5,6 @@ import Layout from "../../components/Layout";
 import Markdown from "react-markdown";
 import { ThemeProvider } from "../../context/themeContext";
 import styled from "styled-components";
-import tw from "twin.macro";
 
 const Article = ({ data }: any) => {
   const article = data.strapiArticle;
@@ -20,17 +19,17 @@ const Article = ({ data }: any) => {
   return (
     <ThemeProvider>
       <Layout seo={seo}>
-        <ArticleContainer className="Article">
-          <div className="Article__wrapper">
+        <ArticleContainer className="Article h-full">
+          <div className="Article__wrapper max-w-5xl pr-10 pl-10 m-auto">
             {article.picture && (
               <img
                 src={article.picture.img[0].formats.large.url}
                 alt={`Picture for ${article.title} article`}
-                className="Article__image"
+                className="Article__image w-full"
               />
             )}
-            <div className="Article__content">
-              <h1>{article.title}</h1>
+            <div className="Article__content mt-5 pb-5">
+              <h1 className="text-5xl">{article.title}</h1>
               <Markdown children={article.content} />
 
               <hr className="" />
@@ -60,24 +59,7 @@ const Article = ({ data }: any) => {
   );
 };
 
-const ArticleContainer = styled.div`
-  height: 100%;
-  .Article {
-    height: 100%;
-    &__content {
-      margin-top: 20px;
-      padding-bottom: 20px;
-    }
-
-    &__wrapper {
-      ${tw`max-w-5xl pr-10 pl-10`}
-      margin: auto;
-    }
-    &__image {
-      width: 100%;
-    }
-  }
-`;
+const ArticleContainer = styled.div``;
 
 export const query = graphql`
   query ArticleQuery($slug: String!) {

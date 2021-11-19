@@ -1,17 +1,16 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import tw from "twin.macro";
 
 const Card = ({ article }: any) => {
   return (
     <CardContainer>
       <Link to={`/article/${article.node.slug}`} className="Card__link">
-        <div className="Card__imageContainer">
+        <div className="Card__imageContainer mb-3 md:mb-5">
           <img
             src={article.node.picture.img[0].formats.medium.url}
             alt={`${article.node.title} image`}
-            className="Card__image"
+            className="Card__image md:w-96 md:h-52 object-cover"
           />
         </div>
         <div>
@@ -48,11 +47,7 @@ const CardContainer = styled.div`
       }
     }
     &__imageContainer {
-      margin-bottom: 20px;
-    }
-    &__image {
-      ${tw`md:w-96 md:h-52`}
-      object-fit: cover;
+      //margin-bottom: 20px;
     }
 
     &__title,

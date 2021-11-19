@@ -5,7 +5,6 @@ import { graphql } from "gatsby";
 import { ThemeProvider } from "../../context/themeContext";
 import Articles from "../../components/Articles";
 import Nav from "../../components/Nav";
-import tw from "twin.macro";
 
 const BlogPage = ({ data }: any) => {
   return (
@@ -13,8 +12,8 @@ const BlogPage = ({ data }: any) => {
       <Layout pageTitle="My Blog Posts" seo={data.strapiHomepage.seo}>
         <BlogPageContainer>
           <Nav />
-          <div className="BlogPage__wrapper">
-            <div className="BlogPage__articlesContainer ">
+          <div className="BlogPage__wrapper max-w-5xl pr-10 pl-10 m-auto">
+            <div className="BlogPage__articlesContainer container mx-auto px-0">
               <h1 className="header1">{data.strapiHomepage.hero.title}</h1>
               <Articles articles={data.allStrapiArticle.edges} />
             </div>
@@ -27,16 +26,6 @@ const BlogPage = ({ data }: any) => {
 
 const BlogPageContainer = styled.div`
   .BlogPage {
-    &__wrapper {
-      ${tw`max-w-5xl pr-10 pl-10`}
-      margin: auto;
-    }
-    &__titleContainer {
-      padding: 0;
-    }
-    &__articlesContainer {
-      ${tw`container mx-auto px-0 `}
-    }
   }
 `;
 
