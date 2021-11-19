@@ -8,6 +8,15 @@ module.exports = {
     title: "Portfolio",
   },
   plugins: [
+    "gatsby-plugin-postcss",
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.svg$/,
+        },
+      },
+    },
     {
       resolve: "gatsby-source-strapi",
       options: {

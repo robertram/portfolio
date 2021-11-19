@@ -11,7 +11,7 @@ import "../styles/styles.css";
 
 export interface Props {
   pageTitle?: string;
-  children;
+  children: any;
   seo?: any;
 }
 
@@ -52,6 +52,7 @@ const Layout = (props: Props) => {
       <LayoutContainer>
         <GlobalStyle theme={theme === "dark" ? darkTheme : lightTheme} />
         <Header />
+        {console.log(theme === "dark" ? darkTheme : lightTheme)}
         <main>{children}</main>
       </LayoutContainer>
     </Theme>

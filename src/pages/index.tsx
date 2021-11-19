@@ -8,10 +8,8 @@ const IndexPage = () => {
     <ThemeProvider>
       <Layout pageTitle="Home Page">
         <HomeContainer>
-          <div className="uk-section">
-            <div className="uk-container uk-container-large">
-              <h1>Home Page</h1>
-            </div>
+          <div className="Home__wrapper max-w-5xl pr-10 pl-10 m-auto">
+            <h1>Home Page</h1>
           </div>
         </HomeContainer>
       </Layout>
@@ -20,9 +18,6 @@ const IndexPage = () => {
 };
 const HomeContainer = styled.div`
   .Home {
-    &__image {
-      width: 200px;
-    }
   }
 `;
 

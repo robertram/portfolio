@@ -6,7 +6,7 @@ import Markdown from "react-markdown";
 import { ThemeProvider } from "../../context/themeContext";
 import styled from "styled-components";
 
-const Article = ({ data }) => {
+const Article = ({ data }: any) => {
   const article = data.strapiArticle;
   const writter = data.strapiWriter;
   const seo = {
@@ -19,24 +19,22 @@ const Article = ({ data }) => {
   return (
     <ThemeProvider>
       <Layout seo={seo}>
-        <ArticleContainer className="Article">
-          <div>
+        <ArticleContainer className="Article h-full">
+          <div className="Article__wrapper max-w-5xl pr-10 pl-10 m-auto">
             {article.picture && (
               <img
                 src={article.picture.img[0].formats.large.url}
                 alt={`Picture for ${article.title} article`}
-                className="Article__image"
+                className="Article__image w-full"
               />
             )}
-          </div>
-          <div className="uk-section">
-            <div className="uk-container uk-container-small">
-              <h1>{article.title}</h1>
+            <div className="Article__content mt-5 pb-5">
+              <h1 className="text-5xl">{article.title}</h1>
               <Markdown children={article.content} />
 
-              <hr className="uk-divider-small" />
+              <hr className="" />
 
-              <div className="uk-grid-small uk-flex-left">
+              <div className="">
                 <div>
                   {writter.picture && (
                     <img
@@ -45,11 +43,9 @@ const Article = ({ data }) => {
                     />
                   )}
                 </div>
-                <div className="uk-width-expand">
-                  <p className="uk-margin-remove-bottom">
-                    By {article.author.name}
-                  </p>
-                  <p className="uk-text-meta uk-margin-remove-top">
+                <div className="">
+                  <p className="">By {article.author.name}</p>
+                  <p className="">
                     <Moment format="MMM Do YYYY">{article.published_at}</Moment>
                     {article.published_at}
                   </p>
@@ -63,15 +59,7 @@ const Article = ({ data }) => {
   );
 };
 
-const ArticleContainer = styled.div`
-  height: 100%;
-  .Article {
-    height: 100%;
-    &__image {
-      width: 100%;
-    }
-  }
-`;
+const ArticleContainer = styled.div``;
 
 export const query = graphql`
   query ArticleQuery($slug: String!) {
