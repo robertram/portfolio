@@ -3,8 +3,6 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import Header from "./Header";
-import { GlobalStyle } from "../styles/theme";
-import Theme, { darkTheme, lightTheme } from "../styles/theme";
 import { ThemeContext, saveThemeModePrefences } from "../context/themeContext";
 import Seo from "./Seo";
 import "../styles/styles.css";
@@ -40,7 +38,7 @@ const Layout = (props: Props) => {
   `);
 
   return (
-    <Theme theme={theme === "dark" ? darkTheme : lightTheme}>
+    <div>
       <Helmet>
         <meta charSet="utf-8" />
         <title>
@@ -49,13 +47,17 @@ const Layout = (props: Props) => {
         <meta id="colorScheme" name="color-scheme" content={theme || "light"} />
       </Helmet>
       <Seo seo={seo ? seo : data.strapiHomepage.seo} />
-      <LayoutContainer>
-        <GlobalStyle theme={theme === "dark" ? darkTheme : lightTheme} />
+      <LayoutContainer className="font-body">
         <Header />
-        {console.log(theme === "dark" ? darkTheme : lightTheme)}
-        <main>{children}</main>
+        <main
+          className={`${
+            theme === "dark" ? "dark" : ""
+          } dark:bg-background-dark bg-background-light h-screen dark:text-white text-black`}
+        >
+          {children}
+        </main>
       </LayoutContainer>
-    </Theme>
+    </div>
   );
 };
 

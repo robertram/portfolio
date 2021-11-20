@@ -27,16 +27,19 @@ const Header = () => {
     }
   }, [openMobile]);
   return (
-    <HeaderContainer className="Header" openMobile={openMobile}>
+    <HeaderContainer
+      className="Header dark:bg-background-dark bg-background-light flex justify-center"
+      openMobile={openMobile}
+    >
       <nav className="Header__nav flex justify-between max-w-5xl pr-10 pl-10 w-full">
-        <div className="Header__logoLinkContainer">
+        <div className="Header__logoLinkContainer my-auto">
           <a href="/" title="Home" className="Header__logoLink">
             <Logo className="Header__logo" />
           </a>
         </div>
 
-        <div className="Header__menu">
-          <ul className="Header__itemsList flex flex-col sm:flex-row p-0 mb-5 sm:m-0">
+        <div className="Header__menu dark:bg-background-dark bg-background-light">
+          <ul className="Header__itemsList flex flex-col sm:flex-row p-0 mb-5 sm:m-0 sm:my-auto">
             {items.map((item, index) => (
               <li
                 className="Header__item flex-initial m-auto mb-6 sm:mb-0 sm:mr-6 list-none no-underline"
@@ -44,19 +47,19 @@ const Header = () => {
               >
                 <Link
                   to={item.link}
-                  className="Header__link body no-underline"
+                  className="Header__link body no-underline dark:text-link-dark text-link-light hover:text-linkHover"
                   title={item.title}
                 >
-                  <a className="Header__linkItem no-underline">{item.title}</a>
+                  {item.title}
                 </Link>
               </li>
             ))}
           </ul>
 
-          <div className="Header__modeButtonContainer">
+          <div className="Header__modeButtonContainer flex justify-center w-full sm:w-0 ">
             <button
               onClick={() => setMode(theme === "dark" ? "light" : "dark")}
-              className="Header__modeButton"
+              className="Header__modeButton text-grey-darker text-base text-center leading-normal hover:text-red "
             >
               {theme === "dark" ? <Sun /> : <Moon />}
             </button>
@@ -67,10 +70,10 @@ const Header = () => {
           className="Header__mobileToggle"
         >
           <div className="Header__hamburguerLineContainer">
-            <span className="Header__hamburguerLine"></span>
-            <span className="Header__hamburguerLine"></span>
-            <span className="Header__hamburguerLine"></span>
-            <span className="Header__hamburguerLine"></span>
+            <span className="Header__hamburguerLine dark:bg-background-light bg-background-dark"></span>
+            <span className="Header__hamburguerLine dark:bg-background-light bg-background-dark"></span>
+            <span className="Header__hamburguerLine dark:bg-background-light bg-background-dark"></span>
+            <span className="Header__hamburguerLine dark:bg-background-light bg-background-dark"></span>
           </div>
         </button>
       </nav>
@@ -79,31 +82,13 @@ const Header = () => {
 };
 
 const HeaderContainer = styled.div<Props>`
-  display: flex;
-  justify-content: center;
   margin: auto 0;
   padding: 20px 0;
-  transition: background 0.2s ease-out;
-  background-color: ${(props) => props.theme.global.bg2};
   .Header {
     &__logoLinkContainer {
       width: 45%;
       @media only screen and (max-width: 640px) {
         width: auto;
-      }
-    }
-    &__item {
-      &:hover {
-        color: ${(props) => props.theme.global.linkHover};
-      }
-    }
-    &__link {
-      color: black;
-    }
-    &__linkItem {
-      color: ${(props) => props.theme.global.link};
-      &:hover {
-        color: ${(props) => props.theme.global.linkHover};
       }
     }
     &__menu {
@@ -124,21 +109,12 @@ const HeaderContainer = styled.div<Props>`
             top: 0;
             right: 0;
             width: 100%;
-            background: ${(props) => props.theme.global.bg2};
-            transition: background 0.2s ease-out;
             height: 100%;
             padding-top: 80px;
           `}
       }
     }
 
-    &__modeButtonContainer {
-      display: flex;
-      justify-content: center;
-      @media only screen and (max-width: 640px) {
-        width: 100%;
-      }
-    }
     &__modeButton {
       border: none;
       background: none;
@@ -147,21 +123,6 @@ const HeaderContainer = styled.div<Props>`
 
       svg {
         width: 20px;
-      }
-      &:hover {
-        svg {
-          stroke: ${(props) => props.theme.global.linkHover};
-          path {
-            fill: ${(props) => props.theme.global.linkHover};
-          }
-        }
-      }
-    }
-
-    &__logo {
-      path {
-        stroke: ${(props) => props.theme.global.color};
-        fill: ${(props) => props.theme.global.color};
       }
     }
 
@@ -191,7 +152,6 @@ const HeaderContainer = styled.div<Props>`
       position: absolute;
       height: 3px;
       width: 100%;
-      background-color: ${(props) => props.theme.global.color};
       border-radius: 9px;
       opacity: 1;
       left: 0;
@@ -240,11 +200,5 @@ const HeaderContainer = styled.div<Props>`
       `}
   }
 `;
-
-Header.defaultProps = {
-  theme: {
-    font: "Slabo 13px",
-  },
-};
 
 export default Header;

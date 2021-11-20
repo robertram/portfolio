@@ -27,7 +27,7 @@ const Nav = () => {
               {data.allStrapiCategory.edges.map((category: any) => (
                 <li
                   key={`category__${category.node.slug}`}
-                  className="Nav__links m-auto md:m-0 md:mr-5"
+                  className="Nav__links m-auto md:m-0 md:mr-5 dark:text-link-dark text-link-light"
                 >
                   <Link
                     to={`/category/${category.node.slug}`}
@@ -46,20 +46,6 @@ const Nav = () => {
   );
 };
 
-const NavContainer = styled.div`
-  .Nav {
-    transition: background 0.2s ease-out;
-    background-color: ${(props) => props.theme.global.bg} !important;
-    color: ${(props) => props.theme.global.color} !important;
-
-    &__button {
-      color: ${(props) => props.theme.global.color};
-    }
-
-    &__links {
-      color: ${(props) => props.theme.global.color};
-    }
-  }
-`;
+const NavContainer = styled.div``;
 
 export default Nav;
