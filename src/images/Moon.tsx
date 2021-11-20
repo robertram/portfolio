@@ -3,7 +3,7 @@ import * as React from "react";
 const Moon = () => {
   return (
     <svg
-      className="fill-current hover:text-linkHover"
+      className="fill-current hover:text-linkHover text-black"
       height={24}
       stroke="#000"
       strokeLinecap="round"

@@ -17,18 +17,16 @@ const Card = ({ article }: any) => {
           />
         </div>
         <div>
-          <p className="Card__category header4">
+          <p className="Card__category">
             {article.node.category.name.charAt(0).toUpperCase() +
               article.node.category.name.slice(1)}
           </p>
-          <p className="Card__title header3">{article.node.title}</p>
+          <p className="Card__title">{article.node.title}</p>
           <div>
             <hr className="uk-divider-small" />
             <div>
               <div>
-                <p className="Card__author header5">
-                  {article.node.author?.name}
-                </p>
+                <p className="Card__author">{article.node.author?.name}</p>
               </div>
             </div>
           </div>
