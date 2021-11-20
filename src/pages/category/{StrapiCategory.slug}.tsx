@@ -4,7 +4,7 @@ import ArticlesComponent from "../../components/Articles";
 import Layout from "../../components/Layout";
 import { ThemeProvider } from "../../context/themeContext";
 
-const Category = ({ data }) => {
+const Category = ({ data }: any) => {
   const articles = data.articles.edges;
   const category = data.category.name;
   const seo = {

@@ -11,8 +11,8 @@ const BlogPage = ({ data }: any) => {
     <ThemeProvider>
       <Layout pageTitle="My Blog Posts" seo={data.strapiHomepage.seo}>
         <BlogPageContainer>
-          <Nav />
-          <div className="BlogPage__wrapper max-w-5xl pr-10 pl-10 m-auto">
+          <div className="BlogPage__wrapper pr-10 pl-10 max-w-screen-2xl m-auto pt-16">
+            <Nav />
             <div className="BlogPage__articlesContainer container mx-auto px-0">
               <h1 className="">{data.strapiHomepage.hero.title}</h1>
               <Articles articles={data.allStrapiArticle.edges} />
