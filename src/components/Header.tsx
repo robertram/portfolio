@@ -62,7 +62,8 @@ const Header = () => {
               className="Header__modeButton text-grey-darker text-base text-center leading-normal hover:text-red "
             >
               {theme}
-              {theme === "dark" ? <Sun /> : <Moon />}
+              {console.log(typeof theme)}
+              {theme == "dark" ? <Sun /> : <Moon />}
             </button>
           </div>
         </div>
