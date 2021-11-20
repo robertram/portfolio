@@ -2,9 +2,9 @@ import React, { useContext, useState, useEffect } from "react";
 import { Link } from "gatsby";
 import styled, { css } from "styled-components";
 import { ThemeContext } from "../context/themeContext";
-import Sun from "../images/sun.svg";
-import Moon from "../images/moon.svg";
-import Logo from "../images/logo.svg";
+import Sun from "../images/Sun";
+import Moon from "../images/Moon";
+import Logo from "../images/Logo";
 
 export interface Props {
   openMobile: boolean;
@@ -34,7 +34,7 @@ const Header = () => {
       <nav className="Header__nav flex justify-between max-w-5xl pr-10 pl-10 w-full">
         <div className="Header__logoLinkContainer my-auto">
           <a href="/" title="Home" className="Header__logoLink">
-            <Logo className="Header__logo" />
+            <Logo />
           </a>
         </div>
 
@@ -118,12 +118,10 @@ const HeaderContainer = styled.div<Props>`
     &__modeButton {
       border: none;
       background: none;
-      height: 20px;
+      height: 26px;
       cursor: pointer;
-
-      svg {
-        width: 20px;
-      }
+      width: 30px;
+      padding: 0;
     }
 
     &__mobileToggle {
