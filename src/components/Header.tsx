@@ -28,7 +28,7 @@ const Header = () => {
   }, [openMobile]);
   return (
     <HeaderContainer
-      className="Header dark:bg-background-dark bg-background-light"
+      className="Header dark:bg-background-dark bg-background-light flex justify-center"
       openMobile={openMobile}
     >
       <nav className="Header__nav flex justify-between max-w-5xl pr-10 pl-10 w-full">
@@ -38,7 +38,7 @@ const Header = () => {
           </a>
         </div>
 
-        <div className="Header__menu">
+        <div className="Header__menu dark:bg-background-dark bg-background-light">
           <ul className="Header__itemsList flex flex-col sm:flex-row p-0 mb-5 sm:m-0 sm:my-auto">
             {items.map((item, index) => (
               <li
@@ -82,8 +82,6 @@ const Header = () => {
 };
 
 const HeaderContainer = styled.div<Props>`
-  display: flex;
-  justify-content: center;
   margin: auto 0;
   padding: 20px 0;
   .Header {
@@ -126,22 +124,7 @@ const HeaderContainer = styled.div<Props>`
       svg {
         width: 20px;
       }
-      /*&:hover {
-        svg {
-          stroke: ${(props) => props.theme.global.linkHover};
-          path {
-            fill: ${(props) => props.theme.global.linkHover};
-          }
-        }
-      }*/
     }
-
-    /*&__logo {
-      path {
-        stroke: ${(props) => props.theme.global.color};
-        fill: ${(props) => props.theme.global.color};
-      }
-    }*/
 
     &__mobileToggle {
       padding: 0;
