@@ -64,6 +64,7 @@ const Header = () => {
               {theme}
               {console.log(typeof theme)}
               {theme == "dark" ? <Sun /> : <Moon />}
+              {theme == "light" ? <Moon /> : <Sun />}
             </button>
           </div>
         </div>
