@@ -38,7 +38,7 @@ const Header = () => {
           </a>
         </div>
 
-        <div className="Header__menu dark:bg-background-dark bg-background-light">
+        <div className="Header__menu">
           <ul className="Header__itemsList flex flex-col sm:flex-row p-0 mb-5 sm:m-0 sm:my-auto">
             {items.map((item, index) => (
               <li
@@ -86,16 +86,12 @@ const HeaderContainer = styled.div<Props>`
   justify-content: center;
   margin: auto 0;
   padding: 20px 0;
-  transition: background 0.2s ease-out;
   .Header {
     &__logoLinkContainer {
       width: 45%;
       @media only screen and (max-width: 640px) {
         width: auto;
       }
-    }
-    &__link {
-      color: black;
     }
     &__menu {
       display: flex;
@@ -115,7 +111,6 @@ const HeaderContainer = styled.div<Props>`
             top: 0;
             right: 0;
             width: 100%;
-            transition: background 0.2s ease-out;
             height: 100%;
             padding-top: 80px;
           `}
@@ -141,12 +136,12 @@ const HeaderContainer = styled.div<Props>`
       }*/
     }
 
-    &__logo {
+    /*&__logo {
       path {
         stroke: ${(props) => props.theme.global.color};
         fill: ${(props) => props.theme.global.color};
       }
-    }
+    }*/
 
     &__mobileToggle {
       padding: 0;

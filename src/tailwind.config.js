@@ -27,6 +27,9 @@ module.exports = {
         linkHover: "#FE5F55",
         orange: "#FE5F55",
       },
+      fontFamily: {
+        body: ["Slabo 13px"],
+      },
     },
   },
   variants: {

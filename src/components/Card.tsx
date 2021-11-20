@@ -4,8 +4,11 @@ import styled from "styled-components";
 
 const Card = ({ article }: any) => {
   return (
-    <CardContainer>
-      <Link to={`/article/${article.node.slug}`} className="Card__link">
+    <CardContainer className="h-full mb-6">
+      <Link
+        to={`/article/${article.node.slug}`}
+        className="Card__link no-underline"
+      >
         <div className="Card__imageContainer mb-3 md:mb-5">
           <img
             src={article.node.picture.img[0].formats.medium.url}
@@ -36,25 +39,6 @@ const Card = ({ article }: any) => {
 };
 const CardContainer = styled.div`
   width: fit-content;
-  margin-bottom: 30px;
-  height: 100%;
-  background: ${(props) => props.theme.global.bg2};
-
-  .Card {
-    &__link {
-      &:hover {
-        text-decoration: none;
-      }
-    }
-    &__imageContainer {
-      //margin-bottom: 20px;
-    }
-
-    &__title,
-    &__category,
-    &__author {
-    }
-  }
 `;
 
 export default Card;
