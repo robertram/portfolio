@@ -28,10 +28,10 @@ const Header = () => {
   }, [openMobile]);
   return (
     <HeaderContainer
-      className="Header dark:bg-background-dark bg-background-light flex justify-center"
+      className="Header dark:bg-background-dark bg-background-light flex justify-center mx-auto fixed w-full z-50"
       openMobile={openMobile}
     >
-      <nav className="Header__nav flex justify-between max-w-5xl pr-10 pl-10 w-full">
+      <nav className="Header__nav flex justify-between max-w-screen-2xl pr-10 pl-10 w-full">
         <div className="Header__logoLinkContainer my-auto">
           <a href="/" title="Home" className="Header__logoLink">
             <Logo />
@@ -109,7 +109,7 @@ const HeaderContainer = styled.div<Props>`
             top: 0;
             right: 0;
             width: 100%;
-            height: 100%;
+            height: 100vh;
             padding-top: 80px;
           `}
       }
