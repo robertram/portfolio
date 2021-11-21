@@ -12,7 +12,7 @@ const Hero = (props: Props) => {
   const { title, description, image } = props;
   return (
     <HeroContainer>
-      <div className="m-auto h-full py-14">
+      <div className="Hero__parent m-auto py-16 flex justify-center items-center">
         <div className="flex flex-col sm:flex-row sm:m-auto">
           <div className="w-full sm:w-1/2 flex flex-col justify-center mb-6 sm:m-0">
             <h1 className="dark:text-text-dark text-text-light text-6xl sm:text-7xl mb-2 sm:mb-6">
@@ -22,7 +22,7 @@ const Hero = (props: Props) => {
               {description}
             </h2>
           </div>
-          <div className="w-full sm:w-1/2 ">
+          <div className="w-full sm:w-1/2">
             <img src={image} alt={title} className="w-full" />
           </div>
         </div>
@@ -30,6 +30,18 @@ const Hero = (props: Props) => {
     </HeroContainer>
   );
 };
-const HeroContainer = styled.div``;
+const HeroContainer = styled.div`
+  .Hero {
+    &__parent {
+      min-height: calc(100vh - 60px);
+    }
+  }
+`;
+
+{
+  /*display: flex;
+  justify-content: center;
+  align-items: center; */
+}
 
 export default Hero;

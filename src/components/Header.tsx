@@ -109,7 +109,7 @@ const HeaderContainer = styled.div<Props>`
             top: 0;
             right: 0;
             width: 100%;
-            height: 100%;
+            height: 100vh;
             padding-top: 80px;
           `}
       }
