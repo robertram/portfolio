@@ -12,8 +12,8 @@ export interface Props {
 
 const items = [
   { link: "/", title: "Home" },
-  { link: "/about", title: "About" },
-  { link: "/blog", title: "Blog" },
+  { link: "#work", title: "Work" },
+  { link: "#education", title: "Education" },
 ];
 
 const Header = () => {
