@@ -12,7 +12,7 @@ module.exports = {
         background: {
           light: "#FFFFFF",
           DEFAULT: "#FFFFFF",
-          dark: "#111F25",
+          dark: "#0C1418",
         },
         background2: {
           light: "#F7F7F7",
