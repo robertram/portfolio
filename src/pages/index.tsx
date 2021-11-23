@@ -63,6 +63,7 @@ export const query = graphql`
         company
         link
         title
+        realDate
         teches {
           name
         }
@@ -80,6 +81,7 @@ export const query = graphql`
         furtherEducation
         date
         details
+        realDate
       }
     }
   }
