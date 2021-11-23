@@ -16,7 +16,7 @@ const Button = (props: Props) => {
   const buttonTextClass =
     "text-orange hover:text-text-dark dark:hover:text-text-dark dark:text-orange font-semibold";
   return (
-    <ButtonContainer className="my-4">
+    <ButtonContainer className="mt-4">
       {action && !link && (
         <button
           onClick={action}

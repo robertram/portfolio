@@ -18,7 +18,7 @@ const WorkCard = (props: CardProps) => {
   const { title, description, picture, date, link } = props;
   return (
     <WorkCardContainer className="border-2 rounded-xl mb-4 bg-background2-light dark:bg-background2-dark p-6">
-      <div className="flex flex-col sm:flex-row ">
+      <div className="flex flex-col">
         {picture && (
           <div className="WorkCard__imageContainer sm:mr-6 mb-4">
             <img
@@ -28,7 +28,7 @@ const WorkCard = (props: CardProps) => {
             />
           </div>
         )}
-        <div className="w-full flex flex-col justify-center sm:mb-6 sm:m-0">
+        <div className="w-full flex flex-col justify-center sm:m-0">
           <h1 className="dark:text-text-dark text-text-light text-4xl sm:text-5xl mb-2 sm:mb-2">
             {title}
           </h1>
@@ -52,24 +52,17 @@ const WorkCard = (props: CardProps) => {
 const WorkCardContainer = styled.div`
   @media (min-width: 640px) {
     min-height: 250px;
-    //max-height: 250px;
   }
   .WorkCard {
     &__imageContainer {
       width: 100%;
       @media (min-width: 640px) {
-        min-width: 400px;
-        max-width: 400px;
-        min-height: 200px;
         max-height: 200px;
       }
     }
     &__image {
       width: 100%;
       @media (min-width: 640px) {
-        min-width: 400px;
-        max-width: 400px;
-        min-height: 200px;
         max-height: 200px;
       }
     }
@@ -82,7 +75,7 @@ const Work = (props: Props) => {
       <div className="WorkCard__parent m-auto py-8 flex justify-center items-center">
         <div className="w-full">
           <h2 className="text-5xl mb-6">My Work</h2>
-          <div className="">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             {workData &&
               workData.map((item: any, index: number) => {
                 const { title, description, picture, date, link } = item;
