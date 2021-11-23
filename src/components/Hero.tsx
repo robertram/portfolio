@@ -23,7 +23,7 @@ const Hero = (props: Props) => {
             </h2>
           </div>
           <div className="w-full sm:w-1/2">
-            <img src={image} alt={title} className="w-full" />
+            <img src={image} alt={title} className="Hero__image w-full" />
           </div>
         </div>
       </div>
@@ -34,6 +34,11 @@ const HeroContainer = styled.div`
   .Hero {
     &__parent {
       min-height: calc(100vh - 60px);
+    }
+    &__image {
+      @media (min-width: 640px) {
+        min-width: 500px;
+      }
     }
   }
 `;

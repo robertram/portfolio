@@ -86,7 +86,7 @@ const SEO = ({ seo = {} }) => {
   return (
     <Helmet
       title={fullSeo.metaTitle}
-      titleTemplate={`%s | ${siteName}`}
+      titleTemplate={`%s`}
       link={[
         {
           rel: "icon",

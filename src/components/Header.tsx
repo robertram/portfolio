@@ -30,7 +30,7 @@ const Header = () => {
   }, [openMobile]);
   return (
     <HeaderContainer
-      className="Header dark:bg-background-dark bg-background-light flex justify-center mx-auto fixed w-full z-50"
+      className="Header dark:bg-background2-dark bg-background2-light flex justify-center mx-auto fixed w-full z-50"
       openMobile={openMobile}
     >
       <nav className="Header__nav flex justify-between max-w-screen-2xl pr-10 pl-10 w-full">
@@ -40,7 +40,7 @@ const Header = () => {
           </a>
         </div>
 
-        <div className="Header__menu dark:bg-background-dark bg-background-light">
+        <div className="Header__menu dark:bg-background2-dark bg-background2-light">
           <ul className="Header__itemsList flex flex-col sm:flex-row p-0 mb-5 sm:m-0 sm:my-auto">
             {items.map((item, index) => (
               <li
@@ -80,7 +80,8 @@ const Header = () => {
               onClick={() => setMode(theme === "dark" ? "light" : "dark")}
               className="Header__modeButton text-grey-darker text-base text-center leading-normal hover:text-red m-auto sm:mr-0 sm:ml-6"
             >
-              {theme != "dark" ? <Moon /> : <Sun />}
+              {theme == "light" && <Moon />}
+              {theme == "dark" && <Sun />}
             </button>
           </div>
         </div>
