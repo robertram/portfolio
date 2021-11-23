@@ -41,9 +41,7 @@ const Layout = (props: Props) => {
     <div>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>
-          {`${pageTitle && pageTitle}`} | {data.site.siteMetadata.title}
-        </title>
+        <title>{`${pageTitle && pageTitle}`}</title>
         <meta id="colorScheme" name="color-scheme" content={theme || "light"} />
       </Helmet>
       <Seo seo={seo ? seo : data.strapiHomepage.seo} />
