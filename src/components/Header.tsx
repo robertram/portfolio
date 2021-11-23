@@ -48,7 +48,7 @@ const Header = () => {
               >
                 <Link
                   to={item.link}
-                  className="Header__link body no-underline dark:text-link-dark text-link-light hover:text-linkHover"
+                  className="Header__link body no-underline dark:text-link-dark text-link-light hover:text-linkHover dark:hover:text-linkHover "
                   title={item.title}
                 >
                   {item.title}
@@ -62,7 +62,7 @@ const Header = () => {
               onClick={() => setMode(theme === "dark" ? "light" : "dark")}
               className="Header__modeButton text-grey-darker text-base text-center leading-normal hover:text-red "
             >
-              {theme == "light" ? <Moon /> : <Sun />}
+              {theme != "dark" ? <Moon /> : <Sun />}
             </button>
           </div>
         </div>
