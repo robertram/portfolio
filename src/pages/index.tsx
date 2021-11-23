@@ -17,7 +17,6 @@ const IndexPage = ({ data }: any) => {
   return (
     <ThemeProvider>
       <Layout pageTitle="Home Page">
-        {console.log(data)}
         <HomeContainer>
           <div className="Home__wrapper pr-10 pl-10 max-w-screen-2xl m-auto pt-16">
             <Hero title={title} description={description} image={image} />

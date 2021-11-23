@@ -122,7 +122,6 @@ const Work = (props: Props) => {
                 } = item;
                 return (
                   <div key={index}>
-                    {console.log(item.teches)}
                     <WorkCard
                       title={title}
                       description={description}
