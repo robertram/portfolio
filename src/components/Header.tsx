@@ -82,11 +82,13 @@ const Header = () => {
             >
               {theme == "light" && (
                 <div>
+                  1
                   <Moon />
                 </div>
               )}
               {theme == "dark" && (
                 <div>
+                  2
                   <Sun />
                 </div>
               )}
