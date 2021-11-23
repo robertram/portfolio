@@ -28,7 +28,7 @@ const WorkCard = (props: CardProps) => {
             />
           </div>
         )}
-        <div className="w-full sm:w-4/6 flex flex-col justify-center sm:mb-6 sm:m-0">
+        <div className="w-full flex flex-col justify-center sm:mb-6 sm:m-0">
           <h1 className="dark:text-text-dark text-text-light text-4xl sm:text-5xl mb-2 sm:mb-2">
             {title}
           </h1>
