@@ -7,7 +7,7 @@ const GitHub = () => {
       viewBox="-1163 1657.697 56.693 56.693"
       width={24}
       xmlns="http://www.w3.org/2000/svg"
-      className="fill-current hover:text-linkHover text-black dark:text-text-dark"
+      className="fill-current hover:text-linkHover dark:hover:text-linkHover text-black dark:text-text-dark"
     >
       <path
         clipRule="evenodd"
