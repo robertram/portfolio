@@ -13,10 +13,11 @@ interface CardProps {
   date?: string;
   link?: string;
   company?: string;
+  teches?: any;
 }
 
 const WorkCard = (props: CardProps) => {
-  const { title, description, picture, date, link, company } = props;
+  const { title, description, picture, date, link, company, teches } = props;
   return (
     <WorkCardContainer className="border-2 rounded-xl mb-4 bg-background2-light dark:bg-background2-dark p-6">
       <div className="flex flex-col">
@@ -33,21 +34,33 @@ const WorkCard = (props: CardProps) => {
           <h1 className="dark:text-text-dark text-text-light text-4xl sm:text-5xl mb-2 sm:mb-2">
             {title}
           </h1>
-          {description && (
-            <h2 className="dark:text-text-dark text-text-light text-2xl sm:text-xl">
-              {description}
-            </h2>
-          )}
           {company && (
             <h2 className="dark:text-text-dark text-text-light text-3xl sm:text-xl">
               {company}
             </h2>
           )}
+          {description && (
+            <h2 className="dark:text-text-dark text-text-light text-2xl sm:text-xl">
+              {description}
+            </h2>
+          )}
+
           {date && (
             <p className="dark:text-text-dark text-text-light text-1xl">
               {date}
             </p>
           )}
+          <div className="flex mt-2 flex-wrap">
+            {teches &&
+              teches.map((item: any, index: number) => (
+                <div
+                  key={index}
+                  className="border-solid border-2 border-gray-500 dark:text-gray-300 bg-background-light dark:bg-background-dark w-min h-full px-2 mr-2 mb-2 rounded-lg whitespace-nowrap"
+                >
+                  {item.name}
+                </div>
+              ))}
+          </div>
 
           {link && <Button text="See project" blank link={link} />}
         </div>
@@ -98,8 +111,15 @@ const Work = (props: Props) => {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             {workArray &&
               workArray.map((item: any, index: number) => {
-                const { title, description, picture, date, link, company } =
-                  item;
+                const {
+                  title,
+                  description,
+                  picture,
+                  date,
+                  link,
+                  company,
+                  teches,
+                } = item;
                 return (
                   <div key={index}>
                     <WorkCard
@@ -109,6 +129,7 @@ const Work = (props: Props) => {
                       date={date}
                       link={link}
                       company={company}
+                      teches={teches}
                     />
                   </div>
                 );
