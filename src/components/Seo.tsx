@@ -90,10 +90,9 @@ const SEO = ({ seo = {} }) => {
       link={[
         {
           rel: "icon",
-          href: "", //favicon.publicURL
+          href: fullSeo.favicon && fullSeo.favicon.img.url,
         },
       ]}
-      //script={}
       meta={metaTags}
     />
   );
@@ -101,16 +100,6 @@ const SEO = ({ seo = {} }) => {
 
 export default SEO;
 
-/*favicon {
-        localFile {
-          publicURL
-        }
-      } */
-/*shareImage {
-          localFile {
-            publicURL
-          }
-        } */
 const query = graphql`
   query {
     strapiGlobal {
@@ -118,6 +107,11 @@ const query = graphql`
       defaultSeo {
         metaTitle
         metaDescription
+      }
+      favicon {
+        img {
+          url
+        }
       }
     }
   }
