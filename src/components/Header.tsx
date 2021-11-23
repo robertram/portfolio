@@ -48,7 +48,7 @@ const Header = () => {
               >
                 <Link
                   to={item.link}
-                  className="Header__link body no-underline dark:text-link-dark text-link-light hover:text-linkHover"
+                  className="Header__link body no-underline dark:text-link-dark text-link-light hover:text-linkHover dark:hover:text-linkHover "
                   title={item.title}
                 >
                   {item.title}

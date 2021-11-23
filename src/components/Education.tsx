@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Button from "./Button";
 
 interface Props {
   educationData: any;
@@ -48,15 +49,7 @@ const EducationCard = (props: CardProps) => {
               {date}
             </p>
           )}
-          {link && (
-            <a
-              href={link}
-              target="_blank"
-              className="dark:text-text-dark text-text-light"
-            >
-              See project
-            </a>
-          )}
+          {link && <Button text="See project" blank link={link} />}
         </div>
       </div>
     </EducationCardContainer>

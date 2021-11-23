@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Button from "./Button";
 
 interface Props {
   workData: any;
@@ -42,15 +42,8 @@ const WorkCard = (props: CardProps) => {
               {date}
             </p>
           )}
-          {link && (
-            <a
-              href={link}
-              target="_blank"
-              className="dark:text-text-dark text-text-light"
-            >
-              See project
-            </a>
-          )}
+
+          {link && <Button text="See project" blank link={link} />}
         </div>
       </div>
     </WorkCardContainer>
@@ -59,7 +52,7 @@ const WorkCard = (props: CardProps) => {
 const WorkCardContainer = styled.div`
   @media (min-width: 640px) {
     min-height: 250px;
-    max-height: 250px;
+    //max-height: 250px;
   }
   .WorkCard {
     &__imageContainer {
