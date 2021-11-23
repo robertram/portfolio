@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 
@@ -12,10 +12,11 @@ interface CardProps {
   picture?: any;
   date?: string;
   link?: string;
+  company?: string;
 }
 
 const WorkCard = (props: CardProps) => {
-  const { title, description, picture, date, link } = props;
+  const { title, description, picture, date, link, company } = props;
   return (
     <WorkCardContainer className="border-2 rounded-xl mb-4 bg-background2-light dark:bg-background2-dark p-6">
       <div className="flex flex-col">
@@ -35,6 +36,11 @@ const WorkCard = (props: CardProps) => {
           {description && (
             <h2 className="dark:text-text-dark text-text-light text-2xl sm:text-xl">
               {description}
+            </h2>
+          )}
+          {company && (
+            <h2 className="dark:text-text-dark text-text-light text-3xl sm:text-xl">
+              {company}
             </h2>
           )}
           {date && (
@@ -70,15 +76,30 @@ const WorkCardContainer = styled.div`
 `;
 const Work = (props: Props) => {
   const { workData } = props;
+  const [workArray, setWorkArray] = useState([]);
+
+  const sortByDate = (data: any) => {
+    data.sort((a: any, b: any) => {
+      const date1: any = new Date(b.realDate);
+      const date2: any = new Date(a.realDate);
+      return date1 - date2;
+    });
+    setWorkArray(data);
+  };
+
+  useEffect(() => {
+    sortByDate(workData);
+  }, []);
   return (
     <WorkContainer id="work">
       <div className="WorkCard__parent m-auto py-8 flex justify-center items-center">
         <div className="w-full">
           <h2 className="text-5xl mb-6">My Work</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-            {workData &&
-              workData.map((item: any, index: number) => {
-                const { title, description, picture, date, link } = item;
+            {workArray &&
+              workArray.map((item: any, index: number) => {
+                const { title, description, picture, date, link, company } =
+                  item;
                 return (
                   <div key={index}>
                     <WorkCard
@@ -87,8 +108,8 @@ const Work = (props: Props) => {
                       picture={picture}
                       date={date}
                       link={link}
+                      company={company}
                     />
-                    {console.log(item)}
                   </div>
                 );
               })}
