@@ -5,6 +5,8 @@ import { ThemeContext } from "../context/themeContext";
 import Sun from "../images/Sun";
 import Moon from "../images/Moon";
 import Logo from "../images/Logo";
+import LinkedIn from "../images/LinkedIn";
+import GitHub from "../images/Github";
 
 export interface Props {
   openMobile: boolean;
@@ -57,10 +59,26 @@ const Header = () => {
             ))}
           </ul>
 
-          <div className="Header__modeButtonContainer flex justify-center w-full sm:w-0 ">
+          <div className="Header__modeButtonContainer flex justify-center sm:justify-end w-full flex-col sm:flex-row sm:w-0 ">
+            <div className="m-auto sm:mx-0 mb-8 sm:mb-0 flex flex-col sm:flex-row">
+              <a
+                href="https://www.linkedin.com/in/robert-ramirez-marin/"
+                className="cursor-pointer block mb-4 sm:mb-0 sm:mr-2"
+                target="_blank"
+              >
+                <LinkedIn />
+              </a>
+              <a
+                href="https://github.com/robertram"
+                className="cursor-pointer block"
+                target="_blank"
+              >
+                <GitHub />
+              </a>
+            </div>
             <button
               onClick={() => setMode(theme === "dark" ? "light" : "dark")}
-              className="Header__modeButton text-grey-darker text-base text-center leading-normal hover:text-red "
+              className="Header__modeButton text-grey-darker text-base text-center leading-normal hover:text-red m-auto sm:mr-0 sm:ml-6"
             >
               {theme != "dark" ? <Moon /> : <Sun />}
             </button>
@@ -87,7 +105,7 @@ const HeaderContainer = styled.div<Props>`
   padding: 20px 0;
   .Header {
     &__logoLinkContainer {
-      width: 45%;
+      width: 40%;
       @media only screen and (max-width: 640px) {
         width: auto;
       }
@@ -96,7 +114,7 @@ const HeaderContainer = styled.div<Props>`
       display: flex;
       justify-content: space-between;
       flex-direction: row;
-      width: 65%;
+      width: 60%;
 
       @media only screen and (max-width: 640px) {
         display: none;
@@ -113,6 +131,12 @@ const HeaderContainer = styled.div<Props>`
             height: 100vh;
             padding-top: 80px;
           `}
+      }
+    }
+    &__modeButtonContainer {
+      width: 20%;
+      @media only screen and (max-width: 640px) {
+        width: 100%;
       }
     }
 
