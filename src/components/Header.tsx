@@ -80,19 +80,8 @@ const Header = () => {
               onClick={() => setMode(theme === "dark" ? "light" : "dark")}
               className="Header__modeButton text-grey-darker text-base text-center leading-normal hover:text-red m-auto sm:mr-0 sm:ml-6"
             >
-              {theme == "light" && (
-                <div>
-                  1
-                  <Moon />
-                </div>
-              )}
-              {theme == "dark" && (
-                <div>
-                  2
-                  <Sun />
-                </div>
-              )}
-              {theme != "dark" ? <Moon /> : <Sun />}
+              {theme == "light" && <Moon />}
+              {theme == "dark" && <Sun />}
             </button>
           </div>
         </div>
