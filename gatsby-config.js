@@ -8,6 +8,47 @@ module.exports = {
     title: "Portfolio",
   },
   plugins: [
+    "gatsby-plugin-postcss",
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.svg$/,
+        },
+      },
+    },
+    {
+      resolve: "gatsby-source-strapi",
+      options: {
+        apiURL: process.env.API_URL || "http://localhost:1337",
+        collectionTypes: [
+          "article",
+          "category",
+          "writer",
+          "education",
+          "tech",
+          "experience",
+        ],
+        singleTypes: [`homepage`, `global`],
+        queryLimit: 1000,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true,
+        jsxPragma: `jsx`,
+        allExtensions: true,
+        module: "commonjs",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Slabo 13px`, "Mulish"],
+        display: "swap",
+      },
+    },
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
     {
@@ -21,7 +62,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/Vector.png",
+        icon: "src/images/vector.png",
       },
     },
     "gatsby-plugin-mdx",
