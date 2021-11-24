@@ -46,7 +46,7 @@ const Header = () => {
               <li
                 className="Header__item flex-initial m-auto mb-6 sm:mb-0 sm:mr-6 list-none no-underline"
                 key={index}
-                onClick={() => setOpenMobile(!openMobile)}
+                onClick={() => setOpenMobile(false)}
               >
                 <Link
                   to={item.link}
