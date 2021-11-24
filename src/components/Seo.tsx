@@ -32,6 +32,10 @@ const SEO = ({ seo = {} }) => {
         {
           name: "twitter:title",
           content: fullSeo.metaTitle,
+        },
+        {
+          name: "author",
+          content: "Robert Ramirez",
         }
       );
     }
