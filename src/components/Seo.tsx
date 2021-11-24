@@ -52,9 +52,7 @@ const SEO = ({ seo = {} }) => {
       );
     }
     if (fullSeo.shareImage) {
-      const imageUrl =
-        (process.env.GATSBY_ROOT_URL || "http://localhost:8000") +
-        fullSeo.shareImage.localFile.publicURL;
+      const imageUrl = fullSeo.shareImage.img.url;
       tags.push(
         {
           name: "image",
@@ -107,6 +105,11 @@ const query = graphql`
       defaultSeo {
         metaTitle
         metaDescription
+        shareImage {
+          img {
+            url
+          }
+        }
       }
       favicon {
         img {
