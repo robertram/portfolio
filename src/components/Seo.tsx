@@ -52,7 +52,7 @@ const SEO = ({ seo = {} }) => {
       );
     }
     if (fullSeo.shareImage) {
-      const imageUrl = fullSeo.shareImage.img.url;
+      const imageUrl = fullSeo.shareImage.img[0].url;
       tags.push(
         {
           name: "image",
