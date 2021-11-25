@@ -36,6 +36,14 @@ const SEO = ({ seo = {} }) => {
         {
           name: "author",
           content: "Robert Ramirez",
+        },
+        {
+          property: "og:type",
+          content: "website",
+        },
+        {
+          property: "og:url",
+          content: "https://robertramdev.com/",
         }
       );
     }
@@ -69,6 +77,10 @@ const SEO = ({ seo = {} }) => {
         {
           name: "twitter:image",
           content: imageUrl,
+        },
+        {
+          name: "twitter:image:url",
+          content: imageUrl,
         }
       );
     }
@@ -78,7 +90,17 @@ const SEO = ({ seo = {} }) => {
         content: "article",
       });
     }
-    tags.push({ name: "twitter:card", content: "summary_large_image" });
+    tags.push(
+      { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:site",
+        content: "@robertramdev",
+      },
+      {
+        name: "twitter:url",
+        content: "https://robertramdev.com/",
+      }
+    );
 
     return tags;
   };
