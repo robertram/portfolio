@@ -71,6 +71,7 @@ const SEO = ({ seo = {} }) => {
           content: imageUrl,
         },
         {
+          name: "image",
           property: "og:image",
           content: imageUrl,
         },
