@@ -13,7 +13,7 @@ const Footer = () => {
             <h4 className="text-4xl mb-6">Lets talk</h4>
 
             <a
-              href="#contact"
+              href="mailto:rsft6000@gmail.com"
               title="Contact"
               className="hover:underline text-left w-max mt-6 hover:text-orange transition-all duration-500 font-semibold text-xl cursor-pointer"
             >
