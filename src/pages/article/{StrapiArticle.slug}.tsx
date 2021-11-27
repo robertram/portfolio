@@ -29,26 +29,34 @@ const Article = ({ data }: any) => {
               />
             )}
             <div className="Article__content mt-5 pb-5">
-              <h1 className="text-5xl">{article.title}</h1>
-              <Markdown children={article.content} />
+              <h1 className="text-5xl mb-6">{article.title}</h1>
+              <article className="prose lg:prose-xl mb-6">
+                <Markdown children={article.content} />
+              </article>
 
               <hr className="" />
 
-              <div className="">
-                <div>
-                  {writter.picture && (
+              <div className="flex mt-6">
+                {/* <div className="mr-2">
+                  writter.picture && (
                     <img
                       src={writter.picture.img[0].formats.thumbnail.url}
                       alt={`Picture of ${article.author.name}`}
                     />
-                  )}
-                </div>
+                  )
+                </div>*/}
                 <div className="">
-                  <p className="">By {article.author.name}</p>
-                  <p className="">
-                    <Moment format="MMM Do YYYY">{article.published_at}</Moment>
-                    {article.published_at}
+                  <p className="text-2xl font-semibold">
+                    By {article.author.name}
                   </p>
+                  <div className="flex">
+                    <p className="font-semibold">Published:&nbsp;</p>
+                    <p className="">
+                      <Moment format="MMM Do YYYY">
+                        {article.published_at}
+                      </Moment>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

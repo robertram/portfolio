@@ -20,7 +20,7 @@ const Nav = () => {
   `);
   return (
     <NavContainer>
-      <nav className="Nav">
+      <nav className="Nav my-6">
         <div className="">
           <div>
             <ul className="Nav__linksContainer flex flex-col sm:flex-row justify-center">

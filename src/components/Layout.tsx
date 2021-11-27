@@ -59,6 +59,10 @@ const Layout = (props: Props) => {
   );
 };
 
-const LayoutContainer = styled.div``;
+const LayoutContainer = styled.div`
+  main {
+    min-height: 100vh;
+  }
+`;
 
 export default Layout;

@@ -12,9 +12,9 @@ const BlogPage = ({ data }: any) => {
       <Layout pageTitle="My Blog Posts" seo={data.strapiHomepage.seo}>
         <BlogPageContainer>
           <div className="BlogPage__wrapper pr-10 pl-10 max-w-screen-2xl m-auto pt-16">
-            <Nav />
+            {/*<Nav />*/}
             <div className="BlogPage__articlesContainer container mx-auto px-0">
-              <h1 className="">{data.strapiHomepage.hero.title}</h1>
+              <h1 className="text-5xl my-6">Blog</h1>
               <Articles articles={data.allStrapiArticle.edges} />
             </div>
           </div>
