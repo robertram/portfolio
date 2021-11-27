@@ -33,7 +33,15 @@ const Header = () => {
       className="Header dark:bg-background2-dark bg-background2-light flex justify-center mx-auto fixed w-full z-50 transition-all duration-300"
       openMobile={openMobile}
     >
-      <nav className="Header__nav flex justify-between max-w-screen-2xl pr-10 pl-10 w-full">
+      <nav
+        className="Header__nav flex justify-between max-w-screen-2xl pr-10 pl-10 w-full"
+        role="navigation"
+        aria-label={
+          openMobile
+            ? "Mobile Accessibility Navigation Dropdown"
+            : "Accessibility Navigation"
+        }
+      >
         <div className="Header__logoLinkContainer my-auto">
           <a href="/" title="Home" className="Header__logoLink">
             <Logo />
@@ -80,7 +88,7 @@ const Header = () => {
             </div>
             <button
               onClick={() => setMode(theme === "dark" ? "light" : "dark")}
-              className="Header__modeButton text-grey-darker text-base text-center leading-normal hover:text-red m-auto sm:mr-0 sm:ml-6"
+              className="Header__modeButton text-grey-darker text-base text-center leading-normal hover:text-red m-auto sm:mr-0 sm:ml-6 flex justify-center"
             >
               {theme == "light" && <Moon />}
               {theme == "dark" && <Sun />}

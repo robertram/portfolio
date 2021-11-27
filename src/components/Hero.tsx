@@ -18,7 +18,7 @@ const Hero = (props: Props) => {
             <h1 className="dark:text-text-dark text-text-light text-4xl sm:text-5xl mb-2 sm:mb-2">
               I'm
             </h1>
-            <h2 className="mb-6 sm:mb-6 dark:text-text-dark text-text-light text-7xl sm:text-6xl leading-10">
+            <h2 className="mb-6 sm:mb-6 dark:text-text-dark text-text-light text-7xl sm:text-6xl ">
               {title}
             </h2>
             <p className="dark:text-text-dark text-text-light text-4xl sm:text-4xl">
