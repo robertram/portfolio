@@ -15,12 +15,22 @@ const Hero = (props: Props) => {
       <div className="Hero__parent m-auto py-16 flex justify-center items-center">
         <div className="flex flex-col xl:flex-row xl:m-auto">
           <div className="w-full xl:w-1/2 flex flex-col justify-center mb-6 sm:m-0">
-            <h1 className="dark:text-text-dark text-text-light text-6xl sm:text-7xl mb-2 sm:mb-6">
-              {title}
+            <h1 className="dark:text-text-dark text-text-light text-4xl sm:text-5xl mb-2 sm:mb-2">
+              I'm
             </h1>
-            <h2 className="dark:text-text-dark text-text-light text-4xl sm:text-4xl">
-              {description}
+            <h2 className="mb-6 sm:mb-6 dark:text-text-dark text-text-light text-7xl sm:text-6xl ">
+              {title}
             </h2>
+            <p className="dark:text-text-dark text-text-light text-4xl sm:text-4xl">
+              {description}
+            </p>
+            <a
+              href="#contact"
+              title="Contact"
+              className="shadow-md hover:shadow-xl text-left  border-2 border-solid border-orange w-max p-2 mt-4 hover:bg-orange transition-all duration-500 hover:text-text-dark font-semibold rounded-md cursor-pointer"
+            >
+              Let's have a chat
+            </a>
           </div>
           <div className="w-full xl:w-1/2">
             <img src={image} alt={title} className="Hero__image w-full" />
