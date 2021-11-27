@@ -6,6 +6,7 @@ import Hero from "../components/Hero";
 import { graphql } from "gatsby";
 import Work from "../components/Work";
 import Education from "../components/Education";
+import Footer from "../components/Footer";
 
 const IndexPage = ({ data }: any) => {
   const title = data.strapiHomepage.hero.title;
@@ -22,6 +23,7 @@ const IndexPage = ({ data }: any) => {
             <Hero title={title} description={description} image={image} />
             <Work workData={work} />
             <Education educationData={education} />
+            <Footer />
           </div>
         </HomeContainer>
       </Layout>
