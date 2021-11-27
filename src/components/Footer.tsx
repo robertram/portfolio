@@ -6,11 +6,11 @@ import GitHub from "../images/Github";
 const Footer = () => {
   return (
     <FooterContainer id="contact">
-      <footer className=" dark:bg-background-dark bg-background-light h-80">
+      <footer className=" dark:bg-background-dark bg-background-light h-96">
         <h3 className="text-5xl mb-6">Have an idea?</h3>
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/2 w-full mb-6 md:mb-0">
-            <h4 className="text-4xl mb-6">Lets talk</h4>
+            <h4 className="text-4xl mb-6">Lets talk!</h4>
 
             <a
               href="mailto:rsft6000@gmail.com"
