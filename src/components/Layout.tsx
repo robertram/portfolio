@@ -50,7 +50,7 @@ const Layout = (props: Props) => {
         <main
           className={`${
             theme === "dark" ? "dark" : ""
-          } dark:bg-background-dark bg-background-light dark:text-white text-black h-full`}
+          } dark:bg-background-dark bg-background-light dark:text-white text-black h-full transition-all duration-300`}
         >
           {children}
         </main>
