@@ -23,7 +23,7 @@ const Education = (props: Props) => {
     sortByDate(educationData);
   }, []);
   return (
-    <EducationContainer id="education">
+    <EducationContainer id="education" style={{ scrollMarginTop: "60px" }}>
       <div className="EducationCard__parent m-auto py-8 pb-12 flex justify-center items-center">
         <div className="w-full">
           <h3 className="text-5xl mb-6">My Education</h3>
