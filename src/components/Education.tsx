@@ -24,10 +24,10 @@ const Education = (props: Props) => {
   }, []);
   return (
     <EducationContainer id="education">
-      <div className="EducationCard__parent m-auto py-8 flex justify-center items-center">
+      <div className="EducationCard__parent m-auto py-8 pb-12 flex justify-center items-center">
         <div className="w-full">
           <h3 className="text-5xl mb-6">My Education</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {educationArray &&
               educationArray.map((item: any, index: number) => {
                 const { title, description, picture, date, provider, link } =
