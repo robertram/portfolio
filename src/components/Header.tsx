@@ -30,17 +30,25 @@ const Header = () => {
   }, [openMobile]);
   return (
     <HeaderContainer
-      className="Header dark:bg-background2-dark bg-background2-light flex justify-center mx-auto fixed w-full z-50"
+      className="Header dark:bg-background2-dark bg-background2-light flex justify-center mx-auto fixed w-full z-50 transition-all duration-300"
       openMobile={openMobile}
     >
-      <nav className="Header__nav flex justify-between max-w-screen-2xl pr-10 pl-10 w-full">
+      <nav
+        className="Header__nav flex justify-between max-w-screen-2xl pr-10 pl-10 w-full"
+        role="navigation"
+        aria-label={
+          openMobile
+            ? "Mobile Accessibility Navigation Dropdown"
+            : "Accessibility Navigation"
+        }
+      >
         <div className="Header__logoLinkContainer my-auto">
           <a href="/" title="Home" className="Header__logoLink">
             <Logo />
           </a>
         </div>
 
-        <div className="Header__menu dark:bg-background2-dark bg-background2-light">
+        <div className="Header__menu dark:bg-background2-dark bg-background2-light transition-all duration-300">
           <ul className="Header__itemsList flex flex-col sm:flex-row p-0 mb-5 sm:m-0 sm:my-auto">
             {items.map((item, index) => (
               <li
@@ -63,6 +71,7 @@ const Header = () => {
             <div className="m-auto sm:mx-0 mb-8 sm:mb-0 flex flex-col sm:flex-row">
               <a
                 href="https://www.linkedin.com/in/robert-ramirez-marin/"
+                title="LinkedIn Robert Ramirez"
                 className="cursor-pointer block mb-4 sm:mb-0 sm:mr-2"
                 target="_blank"
               >
@@ -70,6 +79,7 @@ const Header = () => {
               </a>
               <a
                 href="https://github.com/robertram"
+                title="Github Robert Ramirez"
                 className="cursor-pointer block"
                 target="_blank"
               >
@@ -78,7 +88,7 @@ const Header = () => {
             </div>
             <button
               onClick={() => setMode(theme === "dark" ? "light" : "dark")}
-              className="Header__modeButton text-grey-darker text-base text-center leading-normal hover:text-red m-auto sm:mr-0 sm:ml-6"
+              className="Header__modeButton text-grey-darker text-base text-center leading-normal hover:text-red m-auto sm:mr-0 sm:ml-6 flex justify-center"
             >
               {theme == "light" && <Moon />}
               {theme == "dark" && <Sun />}

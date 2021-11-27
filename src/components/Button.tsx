@@ -12,7 +12,7 @@ const Button = (props: Props) => {
   const { text, blank, link, action } = props;
 
   const buttonClass =
-    "rounded-3xl py-2 px-4 w-min bg-background-light hover:bg-orange dark:bg-background-dark ";
+    "rounded-3xl py-2 px-4 w-min bg-background-light hover:bg-orange dark:bg-background-dark shadow-md transition-all duration-500";
   const buttonTextClass =
     "text-orange hover:text-text-dark dark:hover:text-text-dark dark:text-orange font-semibold";
   return (
