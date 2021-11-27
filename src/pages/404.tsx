@@ -3,12 +3,14 @@ import { Link } from "gatsby";
 
 import Layout from "../components/Layout";
 import { ThemeProvider } from "../context/themeContext";
+import { Helmet } from "react-helmet";
 
 // markup
 const NotFoundPage = () => {
   return (
     <ThemeProvider>
       <Layout pageTitle="About Me">
+        <Helmet title="Page not found" />
         <title>Not found</title>
         <h1>Page not found</h1>
         <p>
