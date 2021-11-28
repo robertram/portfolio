@@ -75,6 +75,7 @@ const Header = () => {
                 title="LinkedIn Robert Ramirez"
                 className="cursor-pointer block mb-4 sm:mb-0 sm:mr-2"
                 target="_blank"
+                rel="noreferrer noopener"
               >
                 <LinkedIn />
               </a>
@@ -83,6 +84,7 @@ const Header = () => {
                 title="Github Robert Ramirez"
                 className="cursor-pointer block"
                 target="_blank"
+                rel="noreferrer noopener"
               >
                 <GitHub />
               </a>

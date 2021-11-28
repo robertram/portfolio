@@ -28,6 +28,7 @@ const Footer = () => {
                 title="LinkedIn Robert Ramirez"
                 className="cursor-pointer block mb-4 sm:mb-0 sm:mr-2 mr-4"
                 target="_blank"
+                rel="noreferrer noopener"
               >
                 <LinkedIn />
               </a>
@@ -36,6 +37,7 @@ const Footer = () => {
                 title="Github Robert Ramirez"
                 className="cursor-pointer block"
                 target="_blank"
+                rel="noreferrer noopener"
               >
                 <GitHub />
               </a>

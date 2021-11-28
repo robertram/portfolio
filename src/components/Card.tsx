@@ -8,6 +8,7 @@ const Card = ({ article }: any) => {
       <Link
         to={`/article/${article.node.slug}`}
         className="Card__link no-underline group"
+        rel="noreferrer noopener"
       >
         <div className="Card__imageContainer mb-3 md:mb-5">
           <img

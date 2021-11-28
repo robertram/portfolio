@@ -112,6 +112,9 @@ const SEO = ({ seo = {} }) => {
     <Helmet
       title={fullSeo.metaTitle}
       titleTemplate={`%s`}
+      htmlAttributes={{
+        lang: "en",
+      }}
       link={[
         {
           rel: "icon",
