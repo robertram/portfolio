@@ -14,8 +14,9 @@ export interface Props {
 
 const items = [
   { link: "/", title: "Home" },
-  { link: "#work", title: "Work" },
-  { link: "#education", title: "Education" },
+  { link: "/#work", title: "Work" },
+  { link: "/#education", title: "Education" },
+  { link: "/blog", title: "Blog" },
 ];
 
 const Header = () => {
@@ -58,7 +59,7 @@ const Header = () => {
               >
                 <Link
                   to={item.link}
-                  className="Header__link body no-underline dark:text-link-dark text-link-light hover:text-linkHover dark:hover:text-linkHover "
+                  className="Header__link body no-underline dark:text-link-dark text-link-light hover:text-linkHover dark:hover:text-linkHover text-xl sm:text-base"
                   title={item.title}
                 >
                   {item.title}

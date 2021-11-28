@@ -7,7 +7,7 @@ const Card = ({ article }: any) => {
     <CardContainer className="h-full mb-6">
       <Link
         to={`/article/${article.node.slug}`}
-        className="Card__link no-underline"
+        className="Card__link no-underline group"
       >
         <div className="Card__imageContainer mb-3 md:mb-5">
           <img
@@ -17,16 +17,20 @@ const Card = ({ article }: any) => {
           />
         </div>
         <div>
-          <p className="Card__category">
+          <p className="Card__title text-3xl group-hover:text-orange">
+            {article.node.title}
+          </p>
+          {/*<p className="Card__category ">
             {article.node.category.name.charAt(0).toUpperCase() +
               article.node.category.name.slice(1)}
-          </p>
-          <p className="Card__title">{article.node.title}</p>
+            </p>*/}
           <div>
             <hr className="uk-divider-small" />
             <div>
               <div>
-                <p className="Card__author">{article.node.author?.name}</p>
+                <p className="Card__author text-xl group-hover:text-orange">
+                  {article.node.author?.name}
+                </p>
               </div>
             </div>
           </div>
