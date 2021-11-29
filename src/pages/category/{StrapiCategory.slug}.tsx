@@ -15,9 +15,11 @@ const Category = ({ data }: any) => {
   return (
     <ThemeProvider>
       <Layout seo={seo}>
-        <div className="uk-section">
-          <div className="uk-container uk-container-large">
-            <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
+        <div className="pr-10 pl-10 max-w-screen-2xl m-auto pt-16">
+          <div className="container mx-auto px-0">
+            <h1 className="text-5xl my-6">
+              {category.charAt(0).toUpperCase() + category.slice(1)} Articles
+            </h1>
             <ArticlesComponent articles={articles} />
           </div>
         </div>
