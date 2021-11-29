@@ -30,6 +30,8 @@ const Button = (props: Props) => {
           href={link}
           className={`${buttonClass} ${buttonTextClass}`}
           target={blank ? "_blank" : "_self"}
+          rel="noreferrer noopener"
+          title={text}
         >
           {text}
         </a>
