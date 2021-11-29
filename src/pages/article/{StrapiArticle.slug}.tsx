@@ -19,8 +19,8 @@ const Article = ({ data }: any) => {
   return (
     <ThemeProvider>
       <Layout seo={seo}>
-        <ArticleContainer className="Article h-full">
-          <div className="Article__wrapper max-w-5xl pr-10 pl-10 m-auto">
+        <ArticleContainer className="Article h-full pt-16">
+          <div className="Article__wrapper max-w-5xl pr-10 pl-10 m-auto dark:text-text-dark text-text-light">
             {article.picture && (
               <img
                 src={article.picture.img[0].formats.large.url}
@@ -30,8 +30,31 @@ const Article = ({ data }: any) => {
             )}
             <div className="Article__content mt-5 pb-5">
               <h1 className="text-5xl mb-6">{article.title}</h1>
-              <article className="prose lg:prose-xl mb-6">
-                <Markdown children={article.content} />
+              <article className="prose lg:prose-xl mb-6 prose-indigo dark:text-text-dark text-text-light">
+                <Markdown
+                  children={article.content}
+                  components={{
+                    h2: ({ node, ...props }) => (
+                      <h2
+                        {...props}
+                        className="text-3xl font-normal dark:text-text-dark text-text-light"
+                      ></h2>
+                    ),
+                    h3: ({ node, ...props }) => (
+                      <h3
+                        {...props}
+                        className="text-2xl font-normal dark:text-text-dark text-text-light"
+                      ></h3>
+                    ),
+                    strong: ({ node, ...props }) => (
+                      <strong
+                        {...props}
+                        className="dark:text-orange text-background2"
+                      ></strong>
+                    ),
+                  }}
+                  className="Markdown dark:text-text-dark text-text-light "
+                />
               </article>
 
               <hr className="" />
@@ -67,7 +90,16 @@ const Article = ({ data }: any) => {
   );
 };
 
-const ArticleContainer = styled.div``;
+const ArticleContainer = styled.div`
+  h1,
+  h2,
+  h3,
+  h4 {
+  }
+
+  strong {
+  }
+`;
 
 export const query = graphql`
   query ArticleQuery($slug: String!) {
