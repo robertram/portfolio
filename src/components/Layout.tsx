@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Header from "./Header";
 import { ThemeContext, saveThemeModePrefences } from "../context/themeContext";
 import Seo from "./Seo";
-import "../styles/styles.css";
+import "../assets/styles.css";
 
 export interface Props {
   pageTitle?: string;
