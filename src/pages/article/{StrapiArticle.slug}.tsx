@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 const Article = ({ data }: any) => {
   const article = data.strapiArticle;
-  const writter = data.strapiWriter;
+  //const writter = data.strapiWriter;
   const seo = {
     metaTitle: article.title,
     metaDescription: article.description,
@@ -122,7 +122,12 @@ export const query = graphql`
         }
       }
     }
-    strapiWriter {
+    
+  }
+`;
+
+/**
+ * strapiWriter {
       picture {
         img {
           formats {
@@ -133,7 +138,6 @@ export const query = graphql`
         }
       }
     }
-  }
-`;
+ */
 
 export default Article;
