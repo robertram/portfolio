@@ -6,7 +6,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import styled from "styled-components";
 import { ThemeProvider } from "../../context/themeContext";
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ data }: any) => {
   const image = getImage(data.mdx.frontmatter.hero_image);
   return (
     <ThemeProvider>

@@ -19,7 +19,7 @@ export const ThemeContext = createContext<{
   setMode: (mode: Mode) => void;
 }>({
   mode: "system",
-  theme: "light",
+  theme: "dark",
   setMode: () => {},
 });
 

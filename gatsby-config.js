@@ -72,6 +72,7 @@ module.exports = {
           "education",
           "tech",
           "experience",
+          "work-experience",
         ],
         singleTypes: [`homepage`, `global`],
         queryLimit: 1000,

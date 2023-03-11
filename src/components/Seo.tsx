@@ -141,11 +141,15 @@ const query = graphql`
           }
         }
       }
-      favicon {
+      
+    }
+  }
+`;
+
+/**
+ * favicon {
         img {
           url
         }
       }
-    }
-  }
-`;
+ */

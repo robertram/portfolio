@@ -5,6 +5,7 @@ import { ThemeProvider } from "../context/themeContext";
 import Hero from "../components/Hero";
 import { graphql } from "gatsby";
 import Work from "../components/Work";
+import WorkExperience from "../components/WorkExperience";
 import Education from "../components/Education";
 import Footer from "../components/Footer";
 
@@ -15,12 +16,17 @@ const IndexPage = ({ data }: any) => {
 
   const work = data.allStrapiExperience.nodes;
   const education = data.allStrapiEducation.nodes;
+  const workExperience = data.allStrapiWorkExperience.nodes;
+
+  
   return (
     <ThemeProvider>
       <Layout pageTitle="Home Page">
         <HomeContainer>
           <div className="Home__wrapper pr-10 pl-10 max-w-screen-2xl m-auto pt-16">
             <Hero title={title} description={description} image={image} />
+
+            <WorkExperience workData={workExperience}/>
             <Work workData={work} />
             <Education educationData={education} />
             <Footer />
@@ -81,8 +87,18 @@ export const query = graphql`
         title
         furtherEducation
         date
-        details
         realDate
+      }
+    }
+    allStrapiWorkExperience {
+      nodes {
+        company
+        company_link
+        title
+        raw_date
+        work_type
+        description
+        date
       }
     }
   }
