@@ -85,11 +85,14 @@ export const WorkExperienceCard = (props: ICard) => {
                     ></strong>
                   ),
                   li: ({ node, ...props }) => (
-                    <li {...props} className="text-background2 flex ">
+                    <li
+                      {...props}
+                      className="flex dark:text-text-dark text-text-light "
+                    >
                       <RightArrow
                         width={10}
                         height={10}
-                        className="mr-2 mt-2"
+                        className="mr-2 mt-2 "
                       />
                       {props.children}
                     </li>
