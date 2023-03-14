@@ -14,12 +14,13 @@ const WorkExperience = (props: Props) => {
   );
 
   const sortByDate = (data: any) => {
-    data.sort((a: any, b: any) => {
-      const date1: any = new Date(b.realDate);
-      const date2: any = new Date(a.realDate);
+    const sorted = data.sort((a: any, b: any) => {
+      const date1: any = new Date(b.raw_date);
+      const date2: any = new Date(a.raw_date);
       return date1 - date2;
     });
-    setWorkArray(data);
+
+    setWorkArray(sorted);
   };
 
   useEffect(() => {
@@ -33,13 +34,17 @@ const WorkExperience = (props: Props) => {
         <div className="w-full">
           <h3 className="text-5xl mb-6">Where I have worked</h3>
 
-          <div className=" flex flex-col md:flex-row border-red border-2 max-w-4xl m-auto">
-            <div className="flex flex-row md:flex-col md:mb-0 mb-5 overflow-x-scroll">
+          <div className="flex flex-col md:flex-row border-red border-2 max-w-4xl m-auto">
+            <div className="flex flex-row md:flex-col md:mb-0 mb-5 md:overflow-hidden overflow-x-scroll md:border-0 border-b-2 border-solid border-lightBlue">
               {workArray &&
                 workArray.map((item: any) => {
                   return (
                     <div
-                      className="company cursor-pointer hover:text-linkHover mb-2 text-xl mr-4 md:mr-0 whitespace-nowrap"
+                      className={`company cursor-pointer hover:text-linkHover md:mb-2 text-xl mr-4 md:mr-0 whitespace-nowrap md:p-0 p-4 ${
+                        activeCompany.company == item.company
+                          ? "md:text-linkHover md:border-0 border-b-2 border-linkHover border-solid"
+                          : ""
+                      }`}
                       onClick={() => {
                         setActiveCompany(item);
                       }}

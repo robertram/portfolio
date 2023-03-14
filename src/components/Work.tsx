@@ -27,7 +27,7 @@ const Work = (props: Props) => {
     <WorkContainer id="work" style={{ scrollMarginTop: "60px" }}>
       <div className="WorkCard__parent m-auto py-8 pb-12 flex justify-center items-center">
         <div className="w-full">
-          <h3 className="text-5xl mb-6">My Work</h3>
+          <h3 className="text-5xl mb-6">Projects</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {workArray &&
               workArray.map((item: any, index: number) => {
