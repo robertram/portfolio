@@ -24,7 +24,9 @@ module.exports = {
           DEFAULT: "#000000",
           dark: "#FFFFFF",
         },
+        lightBlue: "#233554",
         linkHover: "#FE5F55",
+        lightOrange: "#ff827a",
         orange: "#FE5F55",
       },
       fontFamily: {

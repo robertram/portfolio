@@ -33,7 +33,7 @@ export const WorkExperienceCard = (props: ICard) => {
     provider,
   } = props.cardData;
   return (
-    <WorkExperienceCardContainer className="h-full mb-4 rounded-xl shadow-md bg-background2-light dark:bg-background2-dark hover:shadow-2xl transition-all duration-500">
+    <WorkExperienceCardContainer className="max-w-xl h-full mb-4 rounded-xl shadow-md bg-background2-light dark:bg-background2-dark hover:shadow-2xl transition-all duration-500">
       <div className="flex flex-col">
         {picture && (
           <div className="WorkExperienceCard__imageContainer sm:mr-6 mb-4 rounded-xl rounded-tl-xl rounded-tr-xl">
@@ -85,11 +85,11 @@ export const WorkExperienceCard = (props: ICard) => {
                     ></strong>
                   ),
                   li: ({ node, ...props }) => (
-                    <li {...props} className="text-background2 flex">
+                    <li {...props} className="text-background2 flex ">
                       <RightArrow
                         width={10}
                         height={10}
-                        className="mr-2 my-auto"
+                        className="mr-2 mt-2"
                       />
                       {props.children}
                     </li>
