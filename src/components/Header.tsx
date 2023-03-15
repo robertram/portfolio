@@ -8,6 +8,8 @@ import Logo from "../images/Logo";
 import LinkedIn from "../images/LinkedIn";
 import GitHub from "../images/Github";
 
+import Twitter from "../images/Twitter";
+
 export interface Props {
   openMobile: boolean;
 }
@@ -16,7 +18,7 @@ const items = [
   { link: "/", title: "Home" },
   { link: "/#work", title: "Work" },
   { link: "/#education", title: "Education" },
-  { link: "/blog", title: "Blog" },
+  { link: "https://medium.com/@rsft6000", title: "Blog", targetBlank: true },
 ];
 
 const Header = () => {
@@ -57,13 +59,24 @@ const Header = () => {
                 key={index}
                 onClick={() => setOpenMobile(false)}
               >
-                <Link
-                  to={item.link}
-                  className="Header__link body no-underline dark:text-link-dark text-link-light hover:text-linkHover dark:hover:text-linkHover text-xl sm:text-base"
-                  title={item.title}
-                >
-                  {item.title}
-                </Link>
+                {item.targetBlank ? (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    className="Header__link body no-underline dark:text-link-dark text-link-light hover:text-linkHover dark:hover:text-linkHover text-xl sm:text-base"
+                    title={item.title}
+                  >
+                    {item.title}
+                  </a>
+                ) : (
+                  <Link
+                    to={item.link}
+                    className="Header__link body no-underline dark:text-link-dark text-link-light hover:text-linkHover dark:hover:text-linkHover text-xl sm:text-base"
+                    title={item.title}
+                  >
+                    {item.title}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
@@ -82,11 +95,20 @@ const Header = () => {
               <a
                 href="https://github.com/robertram"
                 title="Github Robert Ramirez"
-                className="cursor-pointer block"
+                className="cursor-pointer block sm:mr-3"
                 target="_blank"
                 rel="noreferrer noopener"
               >
                 <GitHub />
+              </a>
+              <a
+                href="https://twitter.com/robertramdev"
+                title="Twitter Robert Ramirez"
+                className="cursor-pointer block m-auto"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <Twitter />
               </a>
             </div>
             <button

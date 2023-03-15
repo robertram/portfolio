@@ -28,35 +28,35 @@ const Category = ({ data }: any) => {
   );
 };
 
-export const query = graphql`
-  query Category($slug: String!) {
-    articles: allStrapiArticle(filter: { category: { slug: { eq: $slug } } }) {
-      edges {
-        node {
-          slug
-          title
-          category {
-            name
-          }
-          author {
-            name
-          }
-          picture {
-            img {
-              formats {
-                medium {
-                  url
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    category: strapiCategory(slug: { eq: $slug }) {
-      name
-    }
-  }
-`;
+// export const query = graphql`
+//   query Category($slug: String!) {
+//     articles: allStrapiArticle(filter: { category: { slug: { eq: $slug } } }) {
+//       edges {
+//         node {
+//           slug
+//           title
+//           category {
+//             name
+//           }
+//           author {
+//             name
+//           }
+//           picture {
+//             img {
+//               formats {
+//                 medium {
+//                   url
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//     category: strapiCategory(slug: { eq: $slug }) {
+//       name
+//     }
+//   }
+// `;
 
 export default Category;

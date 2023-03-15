@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { graphql } from "gatsby";
 import { ThemeProvider } from "../../context/themeContext";
 import Articles from "../../components/Articles";
-import Nav from "../../components/Nav";
 
 const BlogPage = ({ data }: any) => {
   return (
@@ -15,7 +14,9 @@ const BlogPage = ({ data }: any) => {
             {/*<Nav />*/}
             <div className="BlogPage__articlesContainer container mx-auto px-0">
               <h1 className="text-5xl my-6">Blog</h1>
-              <Articles articles={data.allStrapiArticle.edges} />
+              {data?.allStrapiArticle && (
+                <Articles articles={data?.allStrapiArticle?.edges} />
+              )}
             </div>
           </div>
         </BlogPageContainer>
@@ -40,30 +41,30 @@ export const query = graphql`
         metaDescription
       }
     }
-    allStrapiArticle {
-      edges {
-        node {
-          strapiId
-          slug
-          title
-          category {
-            name
-          }
-          author {
-            name
-          }
-          picture {
-            img {
-              formats {
-                medium {
-                  url
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+    # allStrapiArticle {
+    #   edges {
+    #     node {
+    #       strapiId
+    #       slug
+    #       title
+    #       category {
+    #         name
+    #       }
+    #       author {
+    #         name
+    #       }
+    #       picture {
+    #         img {
+    #           formats {
+    #             medium {
+    #               url
+    #             }
+    #           }
+    #         }
+    #       }
+    #     }
+    #   }
+    # }
   }
 `;
 
