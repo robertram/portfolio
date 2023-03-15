@@ -101,7 +101,7 @@ const ArticleContainer = styled.div`
   }
 `;
 
-export const query = graphql`
+/*export const query = graphql`
   query ArticleQuery($slug: String!) {
     strapiArticle(slug: { eq: $slug }) {
       strapiId
@@ -124,7 +124,7 @@ export const query = graphql`
     }
     
   }
-`;
+`;*/
 
 /**
  * strapiWriter {

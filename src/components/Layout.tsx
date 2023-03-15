@@ -28,6 +28,15 @@ const Layout = (props: Props) => {
           siteUrl
         }
       }
+      allStrapiGlobal {
+        nodes {
+          siteName
+          defaultSeo {
+            metaDescription
+            metaTitle
+          }
+        }
+      }
       strapiHomepage {
         seo {
           metaTitle

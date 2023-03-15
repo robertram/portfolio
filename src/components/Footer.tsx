@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import LinkedIn from "../images/LinkedIn";
 import GitHub from "../images/Github";
+import Twitter from "../images/Twitter";
 
 const Footer = () => {
   return (
@@ -35,11 +36,20 @@ const Footer = () => {
               <a
                 href="https://github.com/robertram"
                 title="Github Robert Ramirez"
-                className="cursor-pointer block"
+                className="cursor-pointer block mr-3"
                 target="_blank"
                 rel="noreferrer noopener"
               >
                 <GitHub />
+              </a>
+              <a
+                href="https://twitter.com/robertramdev"
+                title="Twitter Robert Ramirez"
+                className="cursor-pointer block my-auto mt-1"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <Twitter />
               </a>
             </div>
           </div>
