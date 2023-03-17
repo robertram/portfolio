@@ -5,13 +5,15 @@ import Layout from "../../components/Layout";
 import { ThemeProvider } from "../../context/themeContext";
 
 const Category = ({ data }: any) => {
-  const articles = data.articles.edges;
-  const category = data.category.name;
-  const seo = {
-    metaTitle: category,
-    metaDescription: `All ${category} articles`,
-  };
+  // const articles = data.articles.edges;
+  // const category = data.category.name;
+  // const seo = {
+  //   metaTitle: category,
+  //   metaDescription: `All ${category} articles`,
+  // };
 
+  return <div></div>;
+  /*
   return (
     <ThemeProvider>
       <Layout seo={seo}>
@@ -25,7 +27,7 @@ const Category = ({ data }: any) => {
         </div>
       </Layout>
     </ThemeProvider>
-  );
+  );*/
 };
 
 // export const query = graphql`
