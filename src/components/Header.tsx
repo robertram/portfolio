@@ -18,7 +18,7 @@ const items = [
   { link: "/", title: "Home" },
   { link: "/#work", title: "Work" },
   { link: "/#education", title: "Education" },
-  { link: "https://medium.com/@rsft6000", title: "Blog", targetBlank: true },
+  { link: "https://medium.com/@robertramdev", title: "Blog", targetBlank: true },
 ];
 
 const Header = () => {
